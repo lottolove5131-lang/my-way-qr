@@ -11,7 +11,7 @@
   const LAB = {
     big_text: ['🔠', '큰 글씨·큰 버튼'], high_contrast: ['🌓', '선명한 색(고대비)'], easy_words: ['🙂', '쉬운 말과 그림'],
     voice_guide: ['🔊', '소리로 읽어 주기'], voice_order: ['🎤', '말로 주문하기'], low_layout: ['♿', '화면 낮게'],
-    more_time: ['⏳', '시간 제한 없이'], simple_steps: ['👣', '단계 줄이기'],
+    more_time: ['⏳', '시간 제한 없이'], simple_steps: ['👣', '단계 줄이기'], touch_assist: ['✋', '터치 보정(손떨림)'],
   };
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
@@ -35,7 +35,7 @@
   function speak(text) {
     if (!('speechSynthesis' in window)) return;
     speechSynthesis.cancel();
-    const u = new SpeechSynthesisUtterance(text); u.lang = 'ko-KR'; u.rate = 0.92;
+    const u = new SpeechSynthesisUtterance(text); u.lang = 'ko-KR'; u.rate = window.__slowVoice ? 0.8 : 0.95;
     speechSynthesis.speak(u);
   }
 
@@ -57,10 +57,11 @@
     const probs = MWQ.predictMulti(predict, t);
     const picked = MWQ.pickLabels(probs, 0.5);
     const on = new Set(picked.map(x => x.label));
+    if (on.has('voice_order')) on.add('touch_assist');
     on.forEach(l => mine[l] = true);
     if (on.has('big_text') && mine.scale < 1.6) mine.scale = 1.6;
     const box = $('#needOut'); box.hidden = false;
-    box.innerHTML = `<h3>AI 추천: ${[...on].map(l => LAB[l][1]).join(', ')}</h3><p class="hint">추천은 오른쪽 설정에 켜 두었어요. 맞지 않으면 끄면 됩니다.</p><div class="bars">${barsHTML(probs, on)}</div>`;
+    box.innerHTML = `<h3>AI 추천: ${[...on].map(l => LAB[l][1]).join(', ')}</h3><p class="hint">추천은 오른쪽 설정에 켜 두었어요. 맞지 않으면 끄면 됩니다.${on.has('touch_assist') ? ' 손 사용이 어렵다고 보여 터치 보정도 함께 켰어요.' : ''}</p><div class="bars">${barsHTML(probs, on)}</div>`;
     renderMine();
   }
 
@@ -94,86 +95,140 @@
   renderMine();
 
   const kiosk = $('#kiosk');
-  let prof = null, cat = '전체', cart = [], timer = 90, tick = null, focusId = null;
+  const hosp = await J('hospital.json');
+  const KIOSKS = {
+    cafe: { title: '카페 오늘', supports: new Set(MWQ.FLAG) },
+    hosp: { title: '오늘병원 접수', supports: new Set(MWQ.FLAG.filter(f => f !== 'voice_order')) },
+  };
+  let kind = 'cafe', prof = null, cat = '전체', cart = [], timer = 90, tick = null, focusId = null, lastTap = 0, hs = null;
   const CATS = ['전체', ...new Set(menu.items.map(x => x.cat))];
   const PRESETS = [
     { name: '김 할머니(78)', note: '노안·처음 써 봄', p: { big_text: 1, easy_words: 1, voice_guide: 1, more_time: 1, simple_steps: 1, scale: 1.6 } },
     { name: '박 씨(45)', note: '저시력', p: { big_text: 1, high_contrast: 1, voice_guide: 1, more_time: 1, scale: 2 } },
     { name: '이 씨(33)', note: '휠체어 이용', p: { low_layout: 1, scale: 1.3 } },
     { name: '민준(19)', note: '느린 학습자', p: { easy_words: 1, simple_steps: 1, more_time: 1, scale: 1.3 } },
-    { name: '최 씨(61)', note: '손떨림', p: { voice_order: 1, big_text: 1, more_time: 1, scale: 1.6 } },
+    { name: '최 씨(61)', note: '손떨림', p: { voice_order: 1, touch_assist: 1, big_text: 1, more_time: 1, scale: 1.6 } },
     { name: '응우옌(27)', note: '한국어 초보', p: { easy_words: 1, voice_order: 1, scale: 1.3 } },
   ];
   PRESETS.forEach(pr => $('#presets').append(el('button', { onclick: () => applyProfile(normalize(pr.p), pr.name + ' · ' + pr.note) }, `<b>${esc(pr.name)}</b>${esc(pr.note)}`)));
   function normalize(p) { const o = { scale: p.scale || 1 }; MWQ.FLAG.forEach(f => o[f] = !!p[f]); return MWQ.decodeProfile(MWQ.encodeProfile(o)); }
   function log(t) { $('#klog').prepend(el('div', {}, esc(t))); }
 
+  const STAT_KEY = 'mwq_stats';
+  function stats() { try { return JSON.parse(localStorage.getItem(STAT_KEY)) || { sessions: 0, staff: 0, flags: {} }; } catch (e) { return { sessions: 0, staff: 0, flags: {} }; } }
+  function bump(fn) { const s = stats(); fn(s); try { localStorage.setItem(STAT_KEY, JSON.stringify(s)); } catch (e) {} renderReport(); }
+  function renderReport() {
+    const s = stats();
+    const rows = MWQ.FLAG.map(f => [f, s.flags[f] || 0]).sort((a, b) => b[1] - a[1]).filter(x => x[1]);
+    $('#report').innerHTML = `<h3>운영자 리포트 <small>(이 기기 · 개인정보 없음)</small></h3><div class="kv"><span>내 방식 QR 사용</span><b>${s.sessions}회</b><span>직원 호출</span><b>${s.staff}회</b></div>` +
+      (rows.length ? '<div class="bars">' + rows.map(([f, n]) => `<div class="bar"><b>${LAB[f][0]} ${LAB[f][1]}</b><span class="t"><i style="width:${Math.round(n / s.sessions * 100)}%"></i></span><span>${n}</span></div>`).join('') + '</div>' : '<p class="hint">아직 기록이 없어요. 어떤 설정이 많이 쓰였는지만 셉니다.</p>');
+  }
+  renderReport();
+
+  document.querySelectorAll('#kinds button').forEach(b => b.onclick = () => {
+    kind = b.dataset.kind;
+    document.querySelectorAll('#kinds button').forEach(x => x.classList.toggle('on', x === b));
+    if (prof) applyProfile(prof, '같은 QR'); else resetKiosk();
+  });
   $('#useMine').onclick = () => applyProfile(Object.assign({}, mine), '내가 만든 QR');
   $('#resetK').onclick = () => { resetKiosk(); log('원래 화면으로 돌아왔어요. 설정은 남기지 않았어요.'); };
 
   function applyProfile(p, who) {
-    prof = p; cart = []; cat = '전체'; focusId = null;
+    prof = p; window.__slowVoice = !!p.voice_guide; cart = []; cat = '전체'; focusId = null; hs = { step: 0 };
     $('#kModal').hidden = true; $('#kHeard').innerHTML = '';
+    const sup = KIOSKS[kind].supports;
+    const want = MWQ.FLAG.filter(f => p[f]);
+    const miss = want.filter(f => !sup.has(f));
     kiosk.style.setProperty('--scale', p.big_text ? Math.max(p.scale, 1.6) : p.scale);
     kiosk.classList.toggle('p-big', !!p.big_text || p.scale >= 1.6);
     kiosk.classList.toggle('p-contrast', !!p.high_contrast);
     kiosk.classList.toggle('p-easy', !!p.easy_words);
     kiosk.classList.toggle('p-low', !!p.low_layout);
     kiosk.classList.toggle('p-simple', !!p.simple_steps);
-    $('#kVoice').hidden = !p.voice_order;
-    $('#applied').innerHTML = MWQ.FLAG.filter(f => p[f]).map(f => `<span>${LAB[f][0]} ${LAB[f][1]}</span>`).join('') + `<span>글자 ${p.scale}배</span>`;
-    log(`QR 인식: ${who} → 설정 ${MWQ.FLAG.filter(f => p[f]).length}개 적용 (${MWQ.encodeProfile(p)})`);
+    kiosk.classList.toggle('p-touch', !!p.touch_assist);
+    $('#kVoice').hidden = !(p.voice_order && sup.has('voice_order'));
+    $('#kStaff').hidden = false;
+    $('#kStaff').classList.toggle('big', miss.length > 0);
+    $('#applied').innerHTML = want.map(f => `<span class="${sup.has(f) ? '' : 'no'}">${LAB[f][0]} ${LAB[f][1]}${sup.has(f) ? '' : ' (미지원)'}</span>`).join('') + `<span>글자 ${p.scale}배</span>`;
+    log(`QR 인식: ${who} → 설정 ${want.length}개 중 ${want.length - miss.length}개 적용 (${MWQ.encodeProfile(p)})`);
+    if (miss.length) log(`기기 적합성 검사: 이 키오스크는 「${miss.map(f => LAB[f][1]).join(', ')}」 기능을 지원하지 않아 직원 부르기 단추를 크게 띄웠어요.`);
+    if (who !== '같은 QR') bump(s => { s.sessions++; want.forEach(f => s.flags[f] = (s.flags[f] || 0) + 1); });
     startTimer();
-    renderKiosk();
-    if (p.voice_guide) speak(`어서 오세요. ${p.voice_order ? '가운데 초록 단추를 누르고 말로 주문하셔도 돼요. ' : ''}메뉴를 한 번 누르면 이름을 읽어 드리고, 한 번 더 누르면 담아요.`);
-    else if (p.voice_order) speak('초록 단추를 누르고 드실 것을 말씀해 주세요.');
+    render();
+    const head = kind === 'cafe' ? '어서 오세요.' : '오늘병원입니다.';
+    if (p.voice_guide) speak(`${head} ${miss.length ? '이 기계는 말로 접수를 못 해요. 도움이 필요하면 직원 부르기 단추를 누르세요. ' : ''}${p.voice_order && sup.has('voice_order') ? '초록 단추를 누르고 말로 주문하셔도 돼요. ' : ''}단추를 한 번 누르면 읽어 드리고, 한 번 더 누르면 골라요.`);
+    else if (p.voice_order && sup.has('voice_order')) speak('초록 단추를 누르고 드실 것을 말씀해 주세요.');
+    else if (miss.length) speak('이 기계는 말로 접수를 못 해요. 직원 부르기 단추를 누르면 직원이 와요.');
   }
   function resetKiosk() {
-    prof = null; cart = []; cat = '전체';
-    $('#kModal').hidden = true;
+    prof = null; window.__slowVoice = false; cart = []; cat = '전체'; hs = { step: 0 };
+    $('#kModal').hidden = true; $('#kHeard').innerHTML = '';
     kiosk.style.setProperty('--scale', 1);
-    ['p-big', 'p-contrast', 'p-easy', 'p-low', 'p-simple'].forEach(c => kiosk.classList.remove(c));
-    $('#kVoice').hidden = true; $('#applied').innerHTML = ''; $('#kHeard').innerHTML = '';
+    ['p-big', 'p-contrast', 'p-easy', 'p-low', 'p-simple', 'p-touch'].forEach(c => kiosk.classList.remove(c));
+    $('#kVoice').hidden = true; $('#kStaff').hidden = true; $('#applied').innerHTML = '';
     if ('speechSynthesis' in window) speechSynthesis.cancel();
-    startTimer(); renderKiosk();
+    startTimer(); render();
   }
   function startTimer() {
     clearInterval(tick); timer = 90;
-    if (prof && prof.more_time) { $('#kTimer').textContent = '⏳ 시간 제한 없음 · 천천히 고르세요'; return; }
+    if (prof && prof.more_time) { $('#kTimer').textContent = '⏳ 시간 제한 없음'; return; }
     $('#kTimer').textContent = `남은 시간 ${timer}초`;
     tick = setInterval(() => {
       timer--; $('#kTimer').textContent = `남은 시간 ${timer}초`;
-      if (timer <= 0) { clearInterval(tick); cart = []; log('시간 초과로 처음 화면으로 돌아갔어요(일반 키오스크).'); startTimer(); renderKiosk(); }
+      if (timer <= 0) { clearInterval(tick); cart = []; hs = { step: 0 }; log('시간 초과로 처음 화면으로 돌아갔어요(일반 키오스크).'); startTimer(); render(); }
     }, 1000);
   }
-  const nm = it => prof && prof.easy_words ? `${it.easy_name}` : it.name;
-  const optName = o => prof && prof.easy_words ? (menu.options.find(x => x.name === o) || {}).easy || o : o;
+  function tap(fn) {
+    return e => {
+      const now = Date.now();
+      if (prof && prof.touch_assist && now - lastTap < 700) { log('터치 보정: 0.7초 안에 겹친 터치 1번을 무시했어요.'); return; }
+      lastTap = now; fn(e);
+    };
+  }
+  function guided(text, fn) {
+    return tap(e => {
+      const key = text;
+      if (prof && prof.voice_guide && focusId !== key) { focusId = key; render(); speak(text + '. 고르려면 한 번 더 누르세요.'); return; }
+      focusId = null; fn(e);
+    });
+  }
+  $('#kStaff').onclick = () => {
+    bump(s => s.staff++);
+    log('직원 호출: 카운터 화면에 「3번 키오스크 도움 요청」이 떴어요(체험).');
+    const d = el('div', { className: 'done' }, '<div><div style="font-size:3em">🙋</div><p><b>직원을 불렀어요.</b><br>곧 와서 도와 드릴게요.</p></div>');
+    kiosk.append(d); speak('직원을 불렀어요. 곧 와서 도와 드릴게요.');
+    setTimeout(() => d.remove(), 2600);
+  };
 
-  function renderKiosk() {
-    const cats = $('#kCats'); cats.innerHTML = '';
-    CATS.forEach(c => cats.append(el('button', { className: c === cat ? 'on' : '', onclick: () => { cat = c; renderKiosk(); } }, c)));
-    const g = $('#kGrid'); g.innerHTML = '';
+  const nm = it => prof && prof.easy_words ? it.easy_name : it.name;
+  const optName = o => prof && prof.easy_words ? (menu.options.find(x => x.name === o) || {}).easy || o : o;
+  const ui = t => prof && prof.easy_words ? (hosp.ui[t] || t) : t;
+
+  function render() {
+    $('#kTitle').textContent = KIOSKS[kind].title;
+    if (kind === 'cafe') renderCafe(); else renderHosp();
+  }
+
+  function renderCafe() {
+    const cats = $('#kCats'); cats.innerHTML = ''; cats.hidden = false;
+    CATS.forEach(c => cats.append(el('button', { className: c === cat ? 'on' : '', onclick: tap(() => { cat = c; render(); }) }, c)));
+    const g = $('#kGrid'); g.innerHTML = ''; g.className = 'k-grid';
     let list = menu.items.filter(x => cat === '전체' || x.cat === cat);
     if (prof && prof.simple_steps) list = menu.items;
     list.forEach(it => {
-      const b = el('button', { className: 'k-item' + (focusId === it.id ? ' focus' : '') },
+      const say = `${it.easy_name}. ${it.easy_desc} ${it.price}원`;
+      const b = el('button', { className: 'k-item' + (focusId === say ? ' focus' : '') },
         `<div class="ph">${it.emoji || '☕'}</div><div class="nm">${esc(nm(it))}</div><div class="ds">${esc(it.easy_desc)}</div><div class="pr">${it.price.toLocaleString()}원</div>`);
-      b.onclick = () => {
-        if (prof && prof.voice_guide && focusId !== it.id) {
-          focusId = it.id; renderKiosk();
-          speak(`${it.easy_name}. ${it.easy_desc} ${it.price}원. 담으려면 한 번 더 누르세요.`); return;
-        }
-        focusId = null; openItem(it);
-      };
+      b.onclick = guided(say, () => openItem(it));
       g.append(b);
     });
     renderCart();
   }
   function renderCart() {
-    const c = $('#kCart');
+    const c = $('#kCart'); c.hidden = false;
     const total = cart.reduce((s, x) => s + x.price * x.qty, 0);
     c.innerHTML = `<div class="lines">${cart.length ? cart.map(x => `${esc(nm(byId[x.id]))} ${x.qty}잔${x.options.length ? ' · ' + x.options.map(optName).map(esc).join(', ') : ''}`).join('<br>') : (prof && prof.easy_words ? '아직 고른 것이 없어요' : '장바구니가 비었습니다')}</div><button class="pay">${total ? total.toLocaleString() + '원 ' : ''}${prof && prof.easy_words ? '돈 내기' : '결제하기'}</button>`;
-    c.querySelector('.pay').onclick = pay;
+    c.querySelector('.pay').onclick = tap(pay);
   }
   function optPrice(o) { const m = /([+-]\d+)/.exec(o); return m ? parseInt(m[1], 10) : 0; }
   function addCart(it, qty, options) {
@@ -194,27 +249,74 @@
         <div class="k-qty"><button data-q="-1">−</button><b>${qty}잔</b><button data-q="1">+</button></div>
         <div class="k-opts">${shown.map(o => `<button data-o="${esc(o)}" class="${sel.has(o) ? 'on' : ''}">${esc(optName(o))}</button>`).join('')}</div>
         <div class="k-actions"><button data-x="1">${prof && prof.easy_words ? '안 살래요' : '취소'}</button><button class="go" data-a="1">${simple ? '이대로 담기' : '담기'}</button></div></div>`;
-      m.querySelectorAll('[data-q]').forEach(b => b.onclick = () => { qty = Math.max(1, Math.min(9, qty + +b.dataset.q)); draw(); });
-      m.querySelectorAll('[data-o]').forEach(b => b.onclick = () => {
+      m.querySelectorAll('[data-q]').forEach(b => b.onclick = tap(() => { qty = Math.max(1, Math.min(9, qty + +b.dataset.q)); draw(); }));
+      m.querySelectorAll('[data-o]').forEach(b => b.onclick = tap(() => {
         const o = b.dataset.o;
         if (sel.has(o)) sel.delete(o); else { sel.add(o); if (o === '테이크아웃') sel.delete('매장 이용'); if (o === '매장 이용') sel.delete('테이크아웃'); }
         if (prof && prof.voice_guide) speak(optName(o) + (sel.has(o) ? ' 골랐어요' : ' 뺐어요'));
         draw();
-      });
-      m.querySelector('[data-x]').onclick = () => { m.hidden = true; };
-      m.querySelector('[data-a]').onclick = () => { m.hidden = true; addCart(it, qty, [...sel]); };
+      }));
+      m.querySelector('[data-x]').onclick = tap(() => { m.hidden = true; });
+      m.querySelector('[data-a]').onclick = tap(() => { m.hidden = true; addCart(it, qty, [...sel]); });
     };
     draw();
     if (prof && prof.voice_guide) speak(`${it.easy_name}. 몇 잔인지와 원하는 것을 고르고 담기를 누르세요.`);
   }
+  function confirmSheet(title, lines, okText, onOk) {
+    const m = $('#kModal'); m.hidden = false;
+    m.innerHTML = `<div class="k-sheet confirm"><h3>${esc(title)}</h3><ul>${lines.map(l => `<li>${esc(l)}</li>`).join('')}</ul><div class="k-actions"><button data-x="1">고칠래요</button><button class="go" data-a="1">${esc(okText)}</button></div></div>`;
+    m.querySelector('[data-x]').onclick = tap(() => { m.hidden = true; });
+    m.querySelector('[data-a]').onclick = tap(() => { m.hidden = true; onOk(); });
+    if (prof && (prof.voice_guide || prof.voice_order || prof.easy_words)) speak(title + ' ' + lines.join('. ') + '. 맞으면 ' + okText + '를 누르세요.');
+  }
   function pay() {
     if (!cart.length) { if (prof && prof.voice_guide) speak('아직 고른 것이 없어요.'); return; }
     const total = cart.reduce((s, x) => s + x.price * x.qty, 0);
-    const d = el('div', { className: 'done' }, `<div><div style="font-size:3em">✅</div><p><b>${total.toLocaleString()}원</b> 주문이 들어갔어요(체험용 · 실제 결제 없음).</p><p>${prof ? '내 방식 설정은 이 키오스크에 남기지 않고 지웠어요.<br>다음 손님은 원래 화면으로 시작합니다.' : ''}</p></div>`);
+    const lines = cart.map(x => `${byId[x.id].easy_name} ${x.qty}잔${x.options.length ? ' (' + x.options.map(o => (menu.options.find(y => y.name === o) || {}).easy || o).join(', ') + ')' : ''}`).concat([`모두 ${total.toLocaleString()}원`]);
+    if (prof) confirmSheet('이대로 주문할까요?', lines, '네, 주문', () => finish(`${total.toLocaleString()}원 주문이 들어갔어요(체험용 · 실제 결제 없음).`, `${total}원 주문이 들어갔어요.`));
+    else finish(`${total.toLocaleString()}원 주문이 들어갔어요(체험용 · 실제 결제 없음).`);
+  }
+  function finish(msg, sayMsg) {
+    const d = el('div', { className: 'done' }, `<div><div style="font-size:3em">✅</div><p><b>${esc(msg)}</b></p><p>${prof ? '내 방식 설정은 이 키오스크에 남기지 않고 지웠어요.<br>다음 손님은 원래 화면으로 시작합니다.' : ''}</p></div>`);
     kiosk.append(d);
-    if (prof && (prof.voice_guide || prof.voice_order)) speak(`${total}원 주문이 들어갔어요. 설정은 지웠어요. 안녕히 가세요.`);
-    log(`주문 완료 ${total}원 → 설정 삭제`);
+    if (prof && sayMsg) speak(sayMsg + ' 설정은 지웠어요. 안녕히 가세요.');
+    log(`완료 → ${prof ? '설정 삭제' : ''}`);
     setTimeout(() => { d.remove(); resetKiosk(); }, 4200);
+  }
+
+  function renderHosp() {
+    $('#kCats').hidden = true; $('#kCart').hidden = true;
+    const g = $('#kGrid'); g.innerHTML = ''; g.className = 'k-grid hosp';
+    hs = hs || { step: 0 };
+    const head = (t, sub) => g.append(el('div', { className: 'h-head' }, `<b>${esc(t)}</b>${sub ? `<span>${esc(sub)}</span>` : ''}`));
+    const btn = (html, say, fn, cls) => { const b = el('button', { className: 'k-item ' + (cls || '') + (focusId === say ? ' focus' : '') }, html); b.onclick = guided(say, fn); g.append(b); };
+    if (hs.step === 0) {
+      head(ui('초진') + ' / ' + ui('재진'), prof && prof.easy_words ? '' : '진료 접수 유형을 선택하세요');
+      btn(`<div class="ph">🆕</div><div class="nm">${esc(prof && prof.easy_words ? '처음 왔어요' : '초진')}</div>`, '처음 왔어요', () => { hs.first = true; hs.step = 1; render(); });
+      btn(`<div class="ph">🔁</div><div class="nm">${esc(prof && prof.easy_words ? '전에 와 봤어요' : '재진')}</div>`, '전에 와 봤어요', () => { hs.first = false; hs.step = 1; render(); });
+    } else if (hs.step === 1) {
+      head(ui('진료과 선택'), prof && prof.easy_words ? '모르겠으면 아래 「직원 부르기」를 누르세요' : '');
+      hosp.depts.forEach(dp => btn(`<div class="ph">${dp.emoji}</div><div class="nm">${esc(prof && prof.easy_words ? dp.easy_name : dp.name)}</div><div class="ds">${esc(dp.easy_desc)}</div>`, `${dp.easy_name}. ${dp.easy_desc}`, () => { hs.dept = dp; hs.step = 2; hs.pin = ''; render(); }));
+    } else if (hs.step === 2) {
+      head(ui('본인 확인'), ui('생년월일 6자리를 입력하세요') + ' · 체험용: 아무 숫자');
+      g.append(el('div', { className: 'pin' }, (hs.pin || '').padEnd(6, '·').split('').join(' ')));
+      ['1', '2', '3', '4', '5', '6', '7', '8', '9', '지움', '0', '확인'].forEach(k => btn(`<div class="nm">${k}</div>`, k, () => {
+        if (k === '지움') hs.pin = hs.pin.slice(0, -1);
+        else if (k === '확인') { if (hs.pin.length === 6) { hs.step = 3; } }
+        else if (hs.pin.length < 6) hs.pin += k;
+        render();
+      }, 'key'));
+    } else {
+      const lines = [`${hs.first ? '처음 진료' : '다시 진료'}`, `${hs.dept.name}${prof && prof.easy_words ? ' (' + hs.dept.easy_name + ')' : ''}`, `생년월일 ${hs.pin.slice(0, 2)}****`];
+      head(prof ? '이대로 접수할까요?' : '접수 내용 확인', '');
+      g.append(el('ul', { className: 'h-sum' }, lines.map(l => `<li>${esc(l)}</li>`).join('')));
+      btn('<div class="nm">고칠래요</div>', '고칠래요', () => { hs.step = 1; render(); });
+      btn(`<div class="nm">${prof && prof.easy_words ? '네, 접수' : '접수하기'}</div>`, '네, 접수', () => {
+        const no = 20 + Math.floor(Math.random() * 30);
+        finish(`${ui('접수 완료')} ${ui('대기 번호')} ${no}번 (체험용)`, `접수 끝났어요. 기다리는 순서는 ${no}번이에요.`);
+      }, 'go');
+      if (prof && (prof.voice_guide || prof.easy_words)) speak((prof ? '이대로 접수할까요? ' : '') + lines.join('. '));
+    }
   }
 
   function handleSpoken(text) {
@@ -225,7 +327,7 @@
       const alts = r.alternatives.filter(a => a.s > 0.5).slice(0, r.ambiguous ? 2 : 3);
       if (!alts.length) { H.innerHTML = '잘 못 알아들었어요. 다시 말씀해 주세요.'; speak('잘 못 알아들었어요. 다시 말씀해 주세요.'); return; }
       H.innerHTML = `<b>「${esc(text)}」</b><br>어느 것인가요?<div class="ask">${alts.map(a => `<button data-id="${a.id}">${byId[a.id].emoji} ${esc(byId[a.id].easy_name)}</button>`).join('')}</div>`;
-      H.querySelectorAll('[data-id]').forEach(b => b.onclick = () => { H.innerHTML = ''; openItem(byId[b.dataset.id], { qty: r.qty, options: r.options }); });
+      H.querySelectorAll('[data-id]').forEach(b => b.onclick = tap(() => { H.innerHTML = ''; openItem(byId[b.dataset.id], { qty: r.qty, options: r.options }); }));
       speak('어느 것인가요? ' + alts.map(a => byId[a.id].easy_name).join(', 아니면 '));
       return;
     }
@@ -264,7 +366,7 @@
     }
     requestAnimationFrame(scanLoop);
   }
-  renderKiosk(); startTimer();
+  resetKiosk();
 
   $('#aiNeed').oninput = e => {
     const t = e.target.value.trim();
@@ -297,11 +399,12 @@
     <table><tr><th>과제</th><th>일반</th><th>내 방식</th></tr>
     <tr><td>시원한 커피 2잔, 크게, 가져가기</td><td>메뉴 누르기 → 수량 + → 옵션 2개 → 담기 → 결제 (6번 누름, 메뉴 찾기 별도)</td><td>QR 보여 주기 → 말하기 단추 → 「아아 두 잔 크게 포장」 → 담기 → 결제 (3번 누름)</td></tr>
     <tr><td>시간 제한</td><td>90초 뒤 처음으로</td><td>제한 없음</td></tr>
-    <tr><td>글자 크기</td><td>13px 고정</td><td>QR에 저장한 배율(최대 2배)</td></tr></table>
+    <tr><td>글자 크기</td><td>13px 고정</td><td>QR에 저장한 배율(최대 2배)</td></tr>
+    <tr><td>병원 접수(같은 QR)</td><td>작은 버튼 · 90초 제한 · 확인 화면 없음</td><td>쉬운 말 진료과 · 제한 없음 · 접수 전 재확인 · 지원 안 되는 기능은 직원 부르기로 전환</td></tr></table>
     <p class="hint">누름 횟수는 이 시제품 화면 기준입니다.</p></div>
   <div class="card"><h2>한계와 다음 단계</h2><ul class="limit">
     <li>시험 문장은 AI가 만든 합성 데이터입니다. 실제 고령층·장애인 사용자 시험은 아직 하지 않았습니다.</li>
     <li>음성 인식은 브라우저(크롬) 기능에 기대고 있어 소음이 큰 매장에서는 정확도가 떨어질 수 있습니다.</li>
-    <li>실제 키오스크에 넣으려면 제조사가 「QR 설정 읽기 → 화면 모드 바꾸기」 기능을 받아들여야 합니다. QR 형식은 설정 8개와 글자 배율뿐이라 표준으로 만들기 쉽습니다.</li>
+    <li>실제 키오스크에 넣으려면 제조사가 「QR 설정 읽기 → 화면 모드 바꾸기」 기능을 받아들여야 합니다. QR 형식은 설정 9개와 글자 배율뿐이라 표준으로 만들기 쉽습니다.</li>
     <li>다음 단계: 복지관·주민센터와 함께 실제 사용자 시험, 무인민원발급기·병원 수납기로 확장.</li></ul></div>`;
 })();

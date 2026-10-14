@@ -51,7 +51,7 @@
       <h2>내 방식 QR</h2>
       <div class="qrbox"><div id="qr"></div><div class="qrcode" id="qrCode"></div></div>
       <ul class="qrsum" id="qrSum"></ul>
-      <p class="privacy">🔒 QR에는 설정 8개와 글자 배율만 들어 있습니다. 이름·연락처·장애 여부는 담지 않습니다.</p>
+      <p class="privacy">🔒 QR에는 설정 9개와 글자 배율만 들어 있습니다. 이름·연락처·장애 여부는 담지 않습니다.</p>
       <div class="row">
         <button id="qrSave">QR 이미지 저장</button>
         <button class="primary" id="qrTry">키오스크에서 써 보기 →</button>
@@ -64,17 +64,19 @@
   <div class="kiosk-wrap">
     <aside class="kiosk-side">
       <h2>키오스크 체험</h2>
-      <p>일반 카페 키오스크입니다. 아래에서 QR을 보여 주거나 예시 손님을 고르면 화면이 그 사람에게 맞춰 바뀝니다.</p>
+      <p>일반 키오스크 두 종류(카페 주문·병원 접수)입니다. QR을 보여 주거나 예시 손님을 고르면 화면이 그 사람에게 맞춰 바뀝니다. 같은 QR 하나로 두 기계 모두 바뀝니다.</p>
+      <div class="kinds" id="kinds"><button class="on" data-kind="cafe">☕ 카페 주문</button><button data-kind="hosp">🏥 병원 접수</button></div>
       <div class="presets" id="presets"></div>
       <button id="scanBtn" class="wide">📷 카메라로 QR 보여 주기</button>
       <button id="useMine" class="wide">① 탭에서 만든 내 QR 쓰기</button>
       <button id="resetK" class="wide ghost">원래 화면으로</button>
       <div class="applied" id="applied"></div>
       <div class="log" id="klog" aria-live="polite"></div>
+      <div class="report card" id="report"></div>
     </aside>
     <div class="kiosk-shell">
       <div class="kiosk" id="kiosk">
-        <div class="k-top"><b>카페 오늘</b><span class="k-timer" id="kTimer">남은 시간 90초</span></div>
+        <div class="k-top"><b id="kTitle">카페 오늘</b><span class="k-timer" id="kTimer">남은 시간 90초</span></div>
         <div class="k-lift" id="kLift">화면을 손이 닿는 높이로 내렸어요 ↓</div>
         <div class="k-body">
           <div class="k-cats" id="kCats"></div>
@@ -85,6 +87,7 @@
           </div>
           <div class="k-grid" id="kGrid"></div>
         </div>
+        <button class="k-staff" id="kStaff" hidden>🙋 직원 부르기</button>
         <div class="k-cart" id="kCart"></div>
         <div class="k-modal" id="kModal" hidden></div>
       </div>
@@ -104,7 +107,7 @@
   <div class="intro"><h1>AI가 하는 일 세 가지</h1><p>무거운 AI는 키오스크 밖(메뉴 등록 때)에서 한 번만 돌리고, 키오스크와 휴대폰에서는 가볍고 빠른 모델만 돌립니다. 개인정보가 서버로 가지 않습니다.</p></div>
   <div class="ai-grid">
     <div class="card"><div class="ai-tag">휴대폰 안에서</div><h2>① 내 말 → 필요한 화면 설정</h2>
-      <p>글자 조각(1~3글자) 특징으로 8가지 설정이 필요한지 각각 판단하는 다중 라벨 분류 모델입니다. 540문장으로 학습했고 브라우저 안에서 바로 계산합니다(모델 크기 약 0.2MB, 서버 호출 없음).</p>
+      <p>글자 조각(1~3글자) 특징으로 8가지 설정이 필요한지 각각 판단하는 다중 라벨 분류 모델입니다(손 사용이 어렵다고 보이면 터치 보정도 함께 추천). 540문장으로 학습했고 브라우저 안에서 바로 계산합니다(모델 크기 약 0.2MB, 서버 호출 없음).</p>
       <div class="try"><input id="aiNeed" placeholder="아무 말이나 적어 보세요"><div id="aiNeedOut" class="bars"></div></div></div>
     <div class="card"><div class="ai-tag">메뉴 등록 때 한 번</div><h2>② 메뉴 → 쉬운 말·그림·부르는 말</h2>
       <p>생성형 AI가 메뉴마다 쉬운 이름, 25자 이내 설명, 그림 기호, 손님이 실제로 부르는 말(줄임말·사투리·잘못 부르는 이름)을 만들고 사람이 검수합니다. 키오스크는 결과만 가져다 씁니다.</p>

@@ -71,7 +71,7 @@
     return on;
   }
 
-  const FLAG = ['big_text', 'high_contrast', 'easy_words', 'voice_guide', 'voice_order', 'low_layout', 'more_time', 'simple_steps'];
+  const FLAG = ['big_text', 'high_contrast', 'easy_words', 'voice_guide', 'voice_order', 'low_layout', 'more_time', 'simple_steps', 'touch_assist'];
 
   function encodeProfile(p) {
     let bits = 0;
