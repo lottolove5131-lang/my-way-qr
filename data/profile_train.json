@@ -1,0 +1,3545 @@
+{
+"labels": {
+"big_text": "글자·버튼을 크게(시력 저하, 노안, 저시력)",
+"high_contrast": "고대비 색(흐릿하게 보임, 색 구분 어려움, 눈부심)",
+"easy_words": "쉬운 말·그림(외래어·어려운 말 이해 어려움, 발달장애, 한국어 서툼, 처음 써봄)",
+"voice_guide": "음성 안내로 읽어주기(화면 글자를 읽기 어려움, 시각장애, 글을 못 읽음)",
+"voice_order": "말로 주문(터치·손 사용이 어려움, 손떨림, 화면 찾기 어려움)",
+"low_layout": "화면 아래쪽 배치(휠체어 사용, 키가 작음, 팔을 높이 못 듬)",
+"more_time": "시간 제한 없이 천천히(조작이 느림, 뒷사람 눈치, 시간 초과로 처음부터)",
+"simple_steps": "단계 줄이기·기본값 자동(선택지가 많으면 헷갈림, 옵션 화면이 복잡)"
+},
+"train": [
+{
+"text": "글씨가 너무 작아서 잘 안 보여요.",
+"labels": [
+"big_text",
+"high_contrast"
+]
+},
+{
+"text": "버튼이 어디 있는지 찾기가 어려워요.",
+"labels": [
+"big_text",
+"voice_guide"
+]
+},
+{
+"text": "색깔이 비슷해서 뭐가 뭔지 모르겠어요.",
+"labels": [
+"high_contrast"
+]
+},
+{
+"text": "화면이 뿌옇게 보여서 답답해요.",
+"labels": [
+"high_contrast"
+]
+},
+{
+"text": "돋보기를 써도 글씨가 잘 안 읽혀요.",
+"labels": [
+"big_text",
+"voice_guide"
+]
+},
+{
+"text": "메뉴 그림만으로는 무슨 말인지 모르겠어요.",
+"labels": [
+"easy_words",
+"voice_guide"
+]
+},
+{
+"text": "이 버튼이 눌린 건지 아닌지 헷갈려요.",
+"labels": [
+"high_contrast",
+"big_text"
+]
+},
+{
+"text": "화면이 너무 반짝여서 눈이 아파요.",
+"labels": [
+"high_contrast"
+]
+},
+{
+"text": "안경을 안 가져와서 글씨가 다 흐릿해요.",
+"labels": [
+"big_text",
+"high_contrast"
+]
+},
+{
+"text": "글자를 일일이 읽기가 힘들어요.",
+"labels": [
+"voice_guide"
+]
+},
+{
+"text": "무슨 말인지 이해하기가 어려워요.",
+"labels": [
+"easy_words",
+"voice_guide"
+]
+},
+{
+"text": "외래어가 많아서 뜻을 모르겠어요.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "설명이 너무 복잡해서 머리가 아파요.",
+"labels": [
+"easy_words",
+"simple_steps"
+]
+},
+{
+"text": "이걸 어떻게 시작해야 할지 모르겠어요.",
+"labels": [
+"easy_words",
+"simple_steps",
+"more_time"
+]
+},
+{
+"text": "선택지가 너무 많아서 고르기가 힘들어요.",
+"labels": [
+"simple_steps",
+"easy_words"
+]
+},
+{
+"text": "제가 뭘 눌렀는지 기억이 잘 안 나요.",
+"labels": [
+"more_time",
+"simple_steps"
+]
+},
+{
+"text": "한국말이 서툴러서 주문하기가 어렵네요.",
+"labels": [
+"easy_words",
+"voice_guide"
+]
+},
+{
+"text": "그림으로 설명해주시면 좋겠어요.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "다른 나라 말로 주문할 수는 없나요?",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "너무 빨리 넘어가서 뭘 눌러야 할지 몰라요.",
+"labels": [
+"more_time"
+]
+},
+{
+"text": "처음 써봐서 뭐가 뭔지 하나도 모르겠어요.",
+"labels": [
+"easy_words",
+"simple_steps",
+"more_time"
+]
+},
+{
+"text": "용어가 어려워서 이해가 잘 안 돼요.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "어디서부터 시작해야 할지 모르겠네요.",
+"labels": [
+"easy_words",
+"simple_steps"
+]
+},
+{
+"text": "메뉴가 너무 많아서 한눈에 안 들어와요.",
+"labels": [
+"simple_steps",
+"easy_words"
+]
+},
+{
+"text": "뒤에 사람이 기다리면 마음이 급해져요.",
+"labels": [
+"more_time"
+]
+},
+{
+"text": "글씨를 소리 내서 읽어주면 좋겠어요.",
+"labels": [
+"voice_guide"
+]
+},
+{
+"text": "이거 누르면 다음 단계로 가는 건가요?",
+"labels": [
+"easy_words",
+"simple_steps"
+]
+},
+{
+"text": "제가 원하는 메뉴가 어디 있는지 못 찾겠어요.",
+"labels": [
+"easy_words",
+"simple_steps"
+]
+},
+{
+"text": "손이 떨려서 정확하게 누르기가 힘들어요.",
+"labels": [
+"voice_order",
+"more_time"
+]
+},
+{
+"text": "화면이 너무 높아서 손이 잘 안 닿아요.",
+"labels": [
+"low_layout"
+]
+},
+{
+"text": "휠체어에 앉아서 화면 보기가 불편해요.",
+"labels": [
+"low_layout"
+]
+},
+{
+"text": "이걸 누르려면 힘이 좀 드네요.",
+"labels": [
+"big_text",
+"more_time"
+]
+},
+{
+"text": "손가락으로 누르기가 너무 버거워요.",
+"labels": [
+"voice_order"
+]
+},
+{
+"text": "팔을 높이 들고 있기가 힘들어요.",
+"labels": [
+"low_layout"
+]
+},
+{
+"text": "말로 주문할 수는 없나요?",
+"labels": [
+"voice_order"
+]
+},
+{
+"text": "터치하는 게 생각보다 어렵네요.",
+"labels": [
+"voice_order",
+"more_time"
+]
+},
+{
+"text": "잘못 누를까 봐 조심스러워요.",
+"labels": [
+"more_time",
+"big_text"
+]
+},
+{
+"text": "화면에 있는 작은 버튼 누르기가 힘들어요.",
+"labels": [
+"big_text",
+"voice_order"
+]
+},
+{
+"text": "앉은 키가 작아서 화면이 잘 안 보여요.",
+"labels": [
+"low_layout"
+]
+},
+{
+"text": "너무 섬세하게 눌러야 해서 피곤해요.",
+"labels": [
+"big_text",
+"voice_order"
+]
+},
+{
+"text": "시간 제한 때문에 마음이 급해요.",
+"labels": [
+"more_time"
+]
+},
+{
+"text": "뭐가 중요한 정보인지 모르겠어요.",
+"labels": [
+"easy_words",
+"simple_steps"
+]
+},
+{
+"text": "주문을 취소하고 다시 시작할 수 있나요?",
+"labels": [
+"more_time",
+"simple_steps"
+]
+},
+{
+"text": "글씨보다 그림으로 보여주면 좋겠어요.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "자꾸만 처음 화면으로 돌아가 버려요.",
+"labels": [
+"more_time",
+"simple_steps"
+]
+},
+{
+"text": "글씨가 너무 작아서 잘 안 보여요.",
+"labels": [
+"big_text",
+"high_contrast"
+]
+},
+{
+"text": "버튼이 어디 있는지 못 찾겠어요.",
+"labels": [
+"voice_guide",
+"big_text"
+]
+},
+{
+"text": "화면이 흐릿해서 글씨가 구분이 안 가요.",
+"labels": [
+"high_contrast",
+"big_text"
+]
+},
+{
+"text": "말이 너무 어려워서 이해하기 힘들어요.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "외국인이라 한국말이 좀 어려워요.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "키오스크 쓰는 게 처음이라 뭘 해야 할지 모르겠네요.",
+"labels": [
+"easy_words",
+"simple_steps",
+"more_time"
+]
+},
+{
+"text": "시간이 너무 짧아서 자꾸 처음부터 다시 해요.",
+"labels": [
+"more_time"
+]
+},
+{
+"text": "뒤에 기다리는 사람이 있어서 마음이 급해요.",
+"labels": [
+"more_time"
+]
+},
+{
+"text": "손이 떨려서 원하는 걸 누르기가 힘들어요.",
+"labels": [
+"voice_order",
+"big_text",
+"more_time"
+]
+},
+{
+"text": "화면이 너무 위에 있어서 손이 안 닿아요.",
+"labels": [
+"low_layout"
+]
+},
+{
+"text": "여러 가지 선택지가 한꺼번에 나와서 헷갈려요.",
+"labels": [
+"simple_steps",
+"easy_words"
+]
+},
+{
+"text": "음성으로 알려주면 제가 뭘 누르는지 알 수 있을 것 같아요.",
+"labels": [
+"voice_guide"
+]
+},
+{
+"text": "복잡한 메뉴 말고 간단하게 주문하고 싶어요.",
+"labels": [
+"simple_steps",
+"easy_words"
+]
+},
+{
+"text": "화면이 번쩍거려서 눈이 아프고 어지러워요.",
+"labels": [
+"high_contrast"
+]
+},
+{
+"text": "글자가 너무 작아서 돋보기를 꺼내야 해요.",
+"labels": [
+"big_text"
+]
+},
+{
+"text": "그림으로 설명해주면 더 빨리 알아볼 수 있을 것 같아요.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "이걸 누르면 무슨 일이 일어나는지 알려주세요.",
+"labels": [
+"easy_words",
+"voice_guide"
+]
+},
+{
+"text": "손으로 터치하는 것보다 말로 하고 싶어요.",
+"labels": [
+"voice_order"
+]
+},
+{
+"text": "글씨를 읽는 게 힘들어서 소리로 들으면 좋겠어요.",
+"labels": [
+"voice_guide"
+]
+},
+{
+"text": "앉아있어서 화면 위쪽이 잘 안 보여요.",
+"labels": [
+"low_layout"
+]
+},
+{
+"text": "천천히 해도 시간 초과 안 되면 좋겠어요.",
+"labels": [
+"more_time"
+]
+},
+{
+"text": "메뉴가 너무 많아서 뭘 골라야 할지 모르겠어요.",
+"labels": [
+"simple_steps",
+"easy_words"
+]
+},
+{
+"text": "어두운 글씨와 밝은 배경이 눈에 더 잘 들어와요.",
+"labels": [
+"high_contrast"
+]
+},
+{
+"text": "한 단계씩 천천히 알려주면 좋겠어요.",
+"labels": [
+"simple_steps",
+"easy_words"
+]
+},
+{
+"text": "외국어 번역 기능이 있으면 좋겠어요.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "제가 원하는 버튼이 너무 작아요.",
+"labels": [
+"big_text"
+]
+},
+{
+"text": "이 버튼이 뭘 의미하는지 모르겠어요.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "화면이 너무 밝아서 눈이 피곤해요.",
+"labels": [
+"high_contrast"
+]
+},
+{
+"text": "나이가 많아서 새로운 기계 쓰는 게 어려워요.",
+"labels": [
+"easy_words",
+"more_time",
+"simple_steps"
+]
+},
+{
+"text": "화면을 아래쪽으로 내려주시면 감사하겠습니다.",
+"labels": [
+"low_layout"
+]
+},
+{
+"text": "주문을 끝까지 못하고 자꾸 취소돼요.",
+"labels": [
+"more_time"
+]
+},
+{
+"text": "글씨가 커야 제가 잘못 누르지 않을 거예요.",
+"labels": [
+"big_text",
+"voice_order"
+]
+},
+{
+"text": "눈이 침침해서 글자가 다 겹쳐 보여요.",
+"labels": [
+"high_contrast",
+"big_text"
+]
+},
+{
+"text": "말로 주문하면 더 편하게 할 수 있을 것 같아요.",
+"labels": [
+"voice_order"
+]
+},
+{
+"text": "이걸 눌러도 반응이 없는 것 같아서 불안해요.",
+"labels": [
+"more_time",
+"easy_words"
+]
+},
+{
+"text": "그림이 있으면 한눈에 어떤 메뉴인지 알 수 있을 텐데.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "손가락으로 정확히 누르기가 힘들어요.",
+"labels": [
+"voice_order",
+"big_text"
+]
+},
+{
+"text": "화면이 너무 높아서 어깨가 아파요.",
+"labels": [
+"low_layout"
+]
+},
+{
+"text": "다음 단계로 넘어가는 게 너무 빨라요.",
+"labels": [
+"more_time"
+]
+},
+{
+"text": "제가 뭘 선택했는지 소리로 확인하고 싶어요.",
+"labels": [
+"voice_guide"
+]
+},
+{
+"text": "한글을 몰라서 주문하기가 너무 어려워요.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "천천히 하나씩 알려주면 제가 해볼게요.",
+"labels": [
+"easy_words",
+"simple_steps",
+"more_time"
+]
+},
+{
+"text": "글씨 색깔이 배경하고 비슷해서 잘 안 보여요.",
+"labels": [
+"high_contrast"
+]
+},
+{
+"text": "너무 많은 옵션 때문에 주문이 복잡하게 느껴져요.",
+"labels": [
+"simple_steps",
+"easy_words"
+]
+},
+{
+"text": "글씨가 좀 더 크면 훨씬 편할 것 같아요.",
+"labels": [
+"big_text"
+]
+},
+{
+"text": "이거 글씨가 왜 이리 깨알 같노?",
+"labels": [
+"big_text"
+]
+},
+{
+"text": "버튼이 다 작아서 누르기가 힘드네.",
+"labels": [
+"big_text",
+"voice_order"
+]
+},
+{
+"text": "화면이 너무 밝아서 눈이 아프다.",
+"labels": [
+"high_contrast"
+]
+},
+{
+"text": "색깔이 흐릿해서 뭐가 뭔지 모르겠다.",
+"labels": [
+"high_contrast"
+]
+},
+{
+"text": "돋보기 없이는 글자가 안 보이네.",
+"labels": [
+"big_text"
+]
+},
+{
+"text": "글자가 콩알만 해서 도무지 안 보이네.",
+"labels": [
+"big_text"
+]
+},
+{
+"text": "눈이 침침해서 글자가 자꾸 겹쳐 보여.",
+"labels": [
+"big_text",
+"high_contrast"
+]
+},
+{
+"text": "메뉴가 너무 빼곡해서 읽기가 어려워.",
+"labels": [
+"big_text",
+"easy_words"
+]
+},
+{
+"text": "외래어가 너무 많아서 뜻을 모르겠어.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "뭔 말이 이리 복잡해? 그냥 쉽게 말해주지.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "그림도 없이 글씨만 많으니까 헷갈려.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "선택지가 너무 많아서 머리가 아프네.",
+"labels": [
+"simple_steps",
+"easy_words"
+]
+},
+{
+"text": "이거 처음인데 어떻게 하는 건지 모르겠어.",
+"labels": [
+"easy_words",
+"simple_steps"
+]
+},
+{
+"text": "'확인'이 '컨펌'이라는 말이제?",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "단계가 너무 많아서 정신이 없다.",
+"labels": [
+"simple_steps"
+]
+},
+{
+"text": "한국말이 서툴러서 뭐가 뭔지 모르겠어요.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "그림으로 보여주면 좀 알겠는데.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "자꾸 다음 단계로 넘어가서 어지럽네.",
+"labels": [
+"simple_steps",
+"more_time"
+]
+},
+{
+"text": "메뉴 고르는 게 너무 어려워.",
+"labels": [
+"easy_words",
+"simple_steps"
+]
+},
+{
+"text": "옵션이 너무 많아! 그냥 기본으로 해줘.",
+"labels": [
+"simple_steps"
+]
+},
+{
+"text": "화면 글씨를 읽어주면 좋겠어.",
+"labels": [
+"voice_guide"
+]
+},
+{
+"text": "손이 떨려서 버튼 누르기가 힘들어.",
+"labels": [
+"voice_order",
+"big_text"
+]
+},
+{
+"text": "말로 하면 안 되는 건가?",
+"labels": [
+"voice_order"
+]
+},
+{
+"text": "이거 누가 옆에서 설명 좀 해주면 좋겠는데.",
+"labels": [
+"voice_guide",
+"easy_words"
+]
+},
+{
+"text": "화면이 깜깜해서 아무것도 안 보여.",
+"labels": [
+"voice_guide"
+]
+},
+{
+"text": "터치하는 게 너무 어려워.",
+"labels": [
+"voice_order",
+"big_text"
+]
+},
+{
+"text": "손가락이 굳어서 누르기가 힘들어.",
+"labels": [
+"voice_order",
+"big_text"
+]
+},
+{
+"text": "말로 하는 게 더 편한데.",
+"labels": [
+"voice_order"
+]
+},
+{
+"text": "화면이 안 보여서 어디를 눌러야 할지 모르겠어.",
+"labels": [
+"voice_guide",
+"voice_order"
+]
+},
+{
+"text": "휠체어에 앉으니 화면 위쪽이 안 보여.",
+"labels": [
+"low_layout"
+]
+},
+{
+"text": "팔이 짧아서 위에까지 손이 안 닿네.",
+"labels": [
+"low_layout"
+]
+},
+{
+"text": "고개 들고 보려니 목이 아프다.",
+"labels": [
+"low_layout"
+]
+},
+{
+"text": "까치발 들어도 화면 위가 안 보이네.",
+"labels": [
+"low_layout"
+]
+},
+{
+"text": "의자에 앉아있으니 화면이 너무 높아.",
+"labels": [
+"low_layout"
+]
+},
+{
+"text": "뒤에 사람 기다리는데 마음이 급하다.",
+"labels": [
+"more_time"
+]
+},
+{
+"text": "시간 제한이 너무 짧아서 자꾸 꺼지네.",
+"labels": [
+"more_time"
+]
+},
+{
+"text": "천천히 좀 하고 싶은데.",
+"labels": [
+"more_time"
+]
+},
+{
+"text": "이거 하다가 시간 초과돼서 처음부터야.",
+"labels": [
+"more_time",
+"simple_steps"
+]
+},
+{
+"text": "빨리 누르려니 손이 꼬이네.",
+"labels": [
+"more_time",
+"voice_order"
+]
+},
+{
+"text": "설명 읽을 시간도 없네.",
+"labels": [
+"more_time",
+"easy_words"
+]
+},
+{
+"text": "글자 색깔이 배경이랑 너무 비슷해.",
+"labels": [
+"high_contrast"
+]
+},
+{
+"text": "어디를 눌러야 할지 모르겠네.",
+"labels": [
+"easy_words",
+"simple_steps"
+]
+},
+{
+"text": "너무 복잡해서 머리가 멍해진다.",
+"labels": [
+"simple_steps",
+"easy_words"
+]
+},
+{
+"text": "급하게 하려니 자꾸 틀리네.",
+"labels": [
+"more_time",
+"voice_order"
+]
+},
+{
+"text": "누가 대신 눌러줬으면 좋겠다.",
+"labels": [
+"voice_order"
+]
+},
+{
+"text": "글씨가 너무 작아서 잘 안 보여.",
+"labels": [
+"big_text"
+]
+},
+{
+"text": "이게 뭔 소리여? 설명이 너무 어렵네.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "화면이 너무 번쩍거려 눈이 아프다.",
+"labels": [
+"high_contrast"
+]
+},
+{
+"text": "버튼이 어디 있는지 찾기가 힘들어.",
+"labels": [
+"big_text",
+"voice_guide"
+]
+},
+{
+"text": "손이 자꾸 떨려서 엉뚱한 걸 눌러.",
+"labels": [
+"voice_order",
+"big_text"
+]
+},
+{
+"text": "위에 있는 메뉴는 손이 안 닿네.",
+"labels": [
+"low_layout"
+]
+},
+{
+"text": "시간이 너무 빨리 지나가네.",
+"labels": [
+"more_time"
+]
+},
+{
+"text": "선택지가 너무 많아서 머리가 복잡해.",
+"labels": [
+"simple_steps",
+"easy_words"
+]
+},
+{
+"text": "나는 한국말이 서툴러서 이해가 힘들어.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "그림이 있었으면 좋겠어요.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "화면이 흐릿해서 뭐가 뭔지 모르겠어.",
+"labels": [
+"high_contrast"
+]
+},
+{
+"text": "뒤에 사람 기다리는데 마음이 급하네.",
+"labels": [
+"more_time"
+]
+},
+{
+"text": "음성으로 알려주면 안 될까?",
+"labels": [
+"voice_guide"
+]
+},
+{
+"text": "손가락이 굵어서 작은 버튼 누르기 힘들어.",
+"labels": [
+"big_text"
+]
+},
+{
+"text": "이 외래어가 뭔지 모르겠네.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "주문이 너무 복잡하다.",
+"labels": [
+"simple_steps"
+]
+},
+{
+"text": "키가 작아서 화면 위가 잘 안 보여요.",
+"labels": [
+"low_layout"
+]
+},
+{
+"text": "이걸 누르면 어떻게 되는 거예요?",
+"labels": [
+"easy_words",
+"simple_steps"
+]
+},
+{
+"text": "색깔이 비슷해서 구분이 잘 안 되네.",
+"labels": [
+"high_contrast"
+]
+},
+{
+"text": "처음 쓰는 거라 뭐가 뭔지 모르겠어.",
+"labels": [
+"easy_words",
+"simple_steps",
+"more_time"
+]
+},
+{
+"text": "말로 주문하면 안 되나요?",
+"labels": [
+"voice_order"
+]
+},
+{
+"text": "화면을 아래로 내려주면 좋겠어요.",
+"labels": [
+"low_layout"
+]
+},
+{
+"text": "설명이 너무 길고 어려워.",
+"labels": [
+"easy_words",
+"simple_steps"
+]
+},
+{
+"text": "눈이 침침해서 글씨가 안 들어오네.",
+"labels": [
+"big_text"
+]
+},
+{
+"text": "한 단계씩 천천히 알려주면 안 될까?",
+"labels": [
+"simple_steps",
+"more_time"
+]
+},
+{
+"text": "이거 누르다가 잘못될까 봐 겁나.",
+"labels": [
+"more_time",
+"simple_steps"
+]
+},
+{
+"text": "영어가 섞여있어서 이해하기 힘들어요.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "화면이 너무 높아서 팔이 아파.",
+"labels": [
+"low_layout"
+]
+},
+{
+"text": "빨리 안 하면 다시 처음부터래.",
+"labels": [
+"more_time"
+]
+},
+{
+"text": "그림으로 보여주면 더 잘 알겠어.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "흐릿해서 글자가 겹쳐 보여요.",
+"labels": [
+"high_contrast",
+"big_text"
+]
+},
+{
+"text": "버튼이 너무 작아 누르기 불편해.",
+"labels": [
+"big_text"
+]
+},
+{
+"text": "글자를 소리 내어 읽어주면 좋겠어.",
+"labels": [
+"voice_guide"
+]
+},
+{
+"text": "선택지가 너무 많아 헷갈려 죽겠네.",
+"labels": [
+"simple_steps",
+"easy_words"
+]
+},
+{
+"text": "화면이 자꾸 바뀌어서 정신이 없어.",
+"labels": [
+"more_time",
+"simple_steps"
+]
+},
+{
+"text": "이 용어가 무슨 뜻인지 모르겠네.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "나는 손으로 누르기가 어려워.",
+"labels": [
+"voice_order"
+]
+},
+{
+"text": "메뉴가 너무 많아 한참을 찾고 있어.",
+"labels": [
+"simple_steps",
+"more_time"
+]
+},
+{
+"text": "화면이 어두워서 잘 안 보여요.",
+"labels": [
+"high_contrast"
+]
+},
+{
+"text": "결제까지 너무 오래 걸리는 것 같아.",
+"labels": [
+"simple_steps",
+"more_time"
+]
+},
+{
+"text": "말이 너무 어려워요. 외국인이라서요.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "손으로 화면 누르기 힘든데.",
+"labels": [
+"voice_order",
+"big_text"
+]
+},
+{
+"text": "천천히 해도 괜찮다고 말해줘요.",
+"labels": [
+"more_time"
+]
+},
+{
+"text": "뭐가 중요한 건지 모르겠어.",
+"labels": [
+"simple_steps",
+"easy_words"
+]
+},
+{
+"text": "글씨가 너무 많아 다 읽기 어려워.",
+"labels": [
+"big_text",
+"voice_guide"
+]
+},
+{
+"text": "우리 할머니는 글씨가 작아서 잘 안 보여요.",
+"labels": [
+"big_text"
+]
+},
+{
+"text": "화면 글씨가 너무 희미해서 읽기가 힘들어요.",
+"labels": [
+"high_contrast",
+"big_text"
+]
+},
+{
+"text": "복잡한 메뉴는 뭘 눌러야 할지 모르겠어요.",
+"labels": [
+"easy_words",
+"simple_steps"
+]
+},
+{
+"text": "화면이 자동으로 넘어가서 조작하기가 어려워요.",
+"labels": [
+"more_time"
+]
+},
+{
+"text": "손이 떨려서 정확하게 터치하기가 힘들어요.",
+"labels": [
+"voice_order",
+"more_time"
+]
+},
+{
+"text": "우리 아이가 메뉴를 이해하기 너무 어려워해요.",
+"labels": [
+"easy_words",
+"simple_steps"
+]
+},
+{
+"text": "글을 잘 못 읽어서 소리로 설명해주면 좋겠어요.",
+"labels": [
+"voice_guide"
+]
+},
+{
+"text": "외국인이라 한국말이 어려워 그림으로 보여주세요.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "휠체어를 타서 화면 위쪽은 손이 안 닿아요.",
+"labels": [
+"low_layout"
+]
+},
+{
+"text": "메뉴가 너무 많아서 선택하기가 복잡해요.",
+"labels": [
+"simple_steps"
+]
+},
+{
+"text": "뒤에 사람이 기다리면 마음이 조급해져요.",
+"labels": [
+"more_time"
+]
+},
+{
+"text": "어두운 글씨와 배경 때문에 눈이 침침해요.",
+"labels": [
+"high_contrast",
+"big_text"
+]
+},
+{
+"text": "화면을 읽어주는 기능이 있으면 좋겠어요.",
+"labels": [
+"voice_guide"
+]
+},
+{
+"text": "손가락으로 누르기보다 말로 하고 싶어요.",
+"labels": [
+"voice_order"
+]
+},
+{
+"text": "키가 작아서 위쪽 화면은 잘 안 보여요.",
+"labels": [
+"low_layout"
+]
+},
+{
+"text": "너무 빠른 화면 전환에 따라가기 힘들어요.",
+"labels": [
+"more_time"
+]
+},
+{
+"text": "영어나 어려운 한자말은 무슨 뜻인지 몰라요.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "우리 아빠가 처음이라 뭘 눌러야 할지 모르겠대요.",
+"labels": [
+"easy_words",
+"simple_steps"
+]
+},
+{
+"text": "눈이 나빠서 글자가 커야 주문할 수 있어요.",
+"labels": [
+"big_text"
+]
+},
+{
+"text": "색깔 구분이 어려워서 버튼이 잘 안 보여요.",
+"labels": [
+"high_contrast"
+]
+},
+{
+"text": "여러 단계를 거치지 않고 바로 주문하고 싶어요.",
+"labels": [
+"simple_steps"
+]
+},
+{
+"text": "화면을 오래 볼수록 눈이 너무 피로해요.",
+"labels": [
+"big_text",
+"high_contrast"
+]
+},
+{
+"text": "복잡한 선택지 때문에 시간이 너무 오래 걸려요.",
+"labels": [
+"more_time",
+"simple_steps"
+]
+},
+{
+"text": "터치하는 게 불편해서 말로 할 수 없을까요?",
+"labels": [
+"voice_order"
+]
+},
+{
+"text": "화면이 너무 높아서 팔을 들기 힘들어요.",
+"labels": [
+"low_layout"
+]
+},
+{
+"text": "설명이 이해하기 힘들어서 답답해요.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "우리 엄마가 자꾸 처음 화면으로 돌아간대요.",
+"labels": [
+"more_time"
+]
+},
+{
+"text": "작은 글씨는 아예 보이지 않아서 답답해요.",
+"labels": [
+"big_text",
+"voice_guide"
+]
+},
+{
+"text": "글씨가 흐릿해서 눈을 계속 찡그리게 돼요.",
+"labels": [
+"high_contrast"
+]
+},
+{
+"text": "외래어 메뉴는 무슨 음식인지 알 수가 없어요.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "화면의 모든 내용을 소리로 들어야 해요.",
+"labels": [
+"voice_guide"
+]
+},
+{
+"text": "몸이 불편해서 손으로 조작하기가 힘들어요.",
+"labels": [
+"voice_order"
+]
+},
+{
+"text": "휠체어에 앉아서 화면이 너무 높아 불편해요.",
+"labels": [
+"low_layout"
+]
+},
+{
+"text": "선택할 게 너무 많으면 뭘 골라야 할지 헷갈려요.",
+"labels": [
+"simple_steps"
+]
+},
+{
+"text": "천천히 해도 다음 단계로 넘어가지 않게 해주세요.",
+"labels": [
+"more_time"
+]
+},
+{
+"text": "우리 아빠는 글씨를 읽는 속도가 느리세요.",
+"labels": [
+"big_text",
+"more_time"
+]
+},
+{
+"text": "화면 색깔이 다 비슷해 보여 버튼 찾기가 어려워요.",
+"labels": [
+"high_contrast"
+]
+},
+{
+"text": "그림 설명이 있어야 이해하기가 쉬워요.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "눈으로 보고 판단하기 어려우니 소리로 들려주세요.",
+"labels": [
+"voice_guide"
+]
+},
+{
+"text": "터치가 익숙하지 않아 말로 하는 게 편해요.",
+"labels": [
+"voice_order"
+]
+},
+{
+"text": "화면이 너무 높아서 목이 아파요.",
+"labels": [
+"low_layout"
+]
+},
+{
+"text": "우리 아이가 너무 많은 정보를 한 번에 이해 못해요.",
+"labels": [
+"simple_steps",
+"easy_words"
+]
+},
+{
+"text": "시간 제한 없이 여유롭게 주문하고 싶어요.",
+"labels": [
+"more_time"
+]
+},
+{
+"text": "작은 버튼은 누르기 어렵고 자꾸 헛눌러요.",
+"labels": [
+"big_text",
+"voice_order"
+]
+},
+{
+"text": "글씨가 너무 작아 안경을 써도 잘 안 보여요.",
+"labels": [
+"big_text"
+]
+},
+{
+"text": "우리 엄마는 글자가 작아서 잘 안 보여요.",
+"labels": [
+"big_text"
+]
+},
+{
+"text": "화면이 너무 높아서 팔이 닿지 않아요.",
+"labels": [
+"low_layout"
+]
+},
+{
+"text": "그림이 없으니 무슨 말인지 모르겠어요.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "글씨가 흐릿해서 잘 구분하기 힘들어요.",
+"labels": [
+"high_contrast"
+]
+},
+{
+"text": "말소리로 안내해주면 더 편할 것 같아요.",
+"labels": [
+"voice_guide"
+]
+},
+{
+"text": "버튼 누르기가 힘들어서 자꾸 틀려요.",
+"labels": [
+"voice_order",
+"big_text"
+]
+},
+{
+"text": "시간 제한이 없으면 좋겠어요, 너무 급해요.",
+"labels": [
+"more_time"
+]
+},
+{
+"text": "선택지가 너무 많아 뭘 골라야 할지 헷갈려요.",
+"labels": [
+"simple_steps"
+]
+},
+{
+"text": "영어나 어려운 말이 많아서 뜻을 모르겠어요.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "화면 글씨를 읽는 게 너무 오래 걸려요.",
+"labels": [
+"more_time",
+"big_text"
+]
+},
+{
+"text": "휠체어에 앉아 화면 아래쪽이 안 보여요.",
+"labels": [
+"low_layout"
+]
+},
+{
+"text": "손이 떨려서 원하는 곳을 누르기 어려워요.",
+"labels": [
+"voice_order",
+"big_text"
+]
+},
+{
+"text": "옆에서 누가 설명해 주면 좋을 텐데.",
+"labels": [
+"voice_guide",
+"easy_words"
+]
+},
+{
+"text": "색깔 구분이 어려워서 버튼 찾기가 힘들어요.",
+"labels": [
+"high_contrast"
+]
+},
+{
+"text": "처음이라 뭘 해야 할지 하나도 모르겠어요.",
+"labels": [
+"easy_words",
+"simple_steps"
+]
+},
+{
+"text": "복잡한 메뉴는 간편하게 보였으면 좋겠어요.",
+"labels": [
+"simple_steps"
+]
+},
+{
+"text": "빨리 안 누르면 처음부터 다시 하래요.",
+"labels": [
+"more_time"
+]
+},
+{
+"text": "눈이 침침해서 작은 글씨가 잘 안 보여요.",
+"labels": [
+"big_text"
+]
+},
+{
+"text": "손으로 터치하는 게 너무 어려워요.",
+"labels": [
+"voice_order"
+]
+},
+{
+"text": "화면에 있는 글자를 소리로 읽어주세요.",
+"labels": [
+"voice_guide"
+]
+},
+{
+"text": "외국인이라 한국말이 아직 서툴러요.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "팔을 높이 들기 힘들어서 불편해요.",
+"labels": [
+"low_layout"
+]
+},
+{
+"text": "화면이 너무 밝거나 어두워서 보기가 힘들어요.",
+"labels": [
+"high_contrast"
+]
+},
+{
+"text": "순서가 복잡해서 어디까지 했는지 잊어버려요.",
+"labels": [
+"simple_steps",
+"more_time"
+]
+},
+{
+"text": "글씨가 너무 많으면 머리가 아파요.",
+"labels": [
+"easy_words",
+"simple_steps"
+]
+},
+{
+"text": "차분하게 알려주는 목소리가 필요해요.",
+"labels": [
+"voice_guide"
+]
+},
+{
+"text": "버튼이 너무 작아서 자꾸 잘못 눌러요.",
+"labels": [
+"big_text",
+"voice_order"
+]
+},
+{
+"text": "허리 굽히기 어려운데 화면이 너무 높아요.",
+"labels": [
+"low_layout"
+]
+},
+{
+"text": "뒷사람 눈치 보여서 급하게 하게 돼요.",
+"labels": [
+"more_time"
+]
+},
+{
+"text": "그림 설명이 있으면 훨씬 이해하기 쉬울 거예요.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "누르기 전에 생각할 시간이 더 필요해요.",
+"labels": [
+"more_time"
+]
+},
+{
+"text": "색깔이 비슷해서 뭐가 다른지 모르겠어요.",
+"labels": [
+"high_contrast"
+]
+},
+{
+"text": "손가락 힘이 약해서 터치가 잘 안돼요.",
+"labels": [
+"voice_order",
+"big_text"
+]
+},
+{
+"text": "화면을 오래 보기가 눈이 피로해요.",
+"labels": [
+"big_text",
+"high_contrast"
+]
+},
+{
+"text": "메뉴가 너무 많아서 선택하기가 힘들어요.",
+"labels": [
+"simple_steps"
+]
+},
+{
+"text": "소리로 알려주면 제가 알아서 할 수 있어요.",
+"labels": [
+"voice_guide"
+]
+},
+{
+"text": "한국어 메뉴가 영어보다 더 어려워요.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "우리 아이가 글씨보다 그림을 더 좋아해요.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "화면이 반짝거려서 눈이 아파요.",
+"labels": [
+"high_contrast"
+]
+},
+{
+"text": "결제 과정이 너무 복잡해서 못 하겠어요.",
+"labels": [
+"simple_steps"
+]
+},
+{
+"text": "목소리로 주문할 수 있으면 좋을 것 같아요.",
+"labels": [
+"voice_order"
+]
+},
+{
+"text": "버튼이 어디 있는지 찾기가 어려워요.",
+"labels": [
+"big_text",
+"high_contrast"
+]
+},
+{
+"text": "천천히 해도 괜찮다고 말해주면 좋겠어요.",
+"labels": [
+"more_time"
+]
+},
+{
+"text": "글씨가 너무 작아서 돋보기가 필요해요.",
+"labels": [
+"big_text"
+]
+},
+{
+"text": "제가 앉은 키로는 화면이 너무 높아요.",
+"labels": [
+"low_layout"
+]
+},
+{
+"text": "글씨 너무 작아.",
+"labels": [
+"big_text"
+]
+},
+{
+"text": "버튼 안 보여.",
+"labels": [
+"big_text"
+]
+},
+{
+"text": "화면이 뿌얘요.",
+"labels": [
+"high_contrast"
+]
+},
+{
+"text": "색 구별 힘들어.",
+"labels": [
+"high_contrast"
+]
+},
+{
+"text": "외래어 어려워.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "소리로 읽어줘.",
+"labels": [
+"voice_guide"
+]
+},
+{
+"text": "말로 주문할게.",
+"labels": [
+"voice_order"
+]
+},
+{
+"text": "화면이 너무 높아.",
+"labels": [
+"low_layout"
+]
+},
+{
+"text": "시간이 너무 빨라.",
+"labels": [
+"more_time"
+]
+},
+{
+"text": "너무 복잡하네.",
+"labels": [
+"simple_steps"
+]
+},
+{
+"text": "팔이 안 닿아요.",
+"labels": [
+"low_layout"
+]
+},
+{
+"text": "손이 떨려요.",
+"labels": [
+"voice_order"
+]
+},
+{
+"text": "터치하기 힘들어.",
+"labels": [
+"voice_order"
+]
+},
+{
+"text": "무슨 말인지 몰라.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "그림 보여줘.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "한국말 서툴러.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "처음 써 봐요.",
+"labels": [
+"easy_words",
+"simple_steps"
+]
+},
+{
+"text": "엄마가 못 봐.",
+"labels": [
+"big_text"
+]
+},
+{
+"text": "아기가 안 닿아.",
+"labels": [
+"low_layout"
+]
+},
+{
+"text": "아빠가 느려요.",
+"labels": [
+"more_time"
+]
+},
+{
+"text": "선택지가 많아.",
+"labels": [
+"simple_steps"
+]
+},
+{
+"text": "글을 못 읽어.",
+"labels": [
+"voice_guide"
+]
+},
+{
+"text": "눈이 잘 안 보여.",
+"labels": [
+"big_text",
+"high_contrast"
+]
+},
+{
+"text": "빛 때문에 안 보여.",
+"labels": [
+"high_contrast"
+]
+},
+{
+"text": "쉬운 말로 해줘.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "터치 어려워요.",
+"labels": [
+"voice_order"
+]
+},
+{
+"text": "시간 초과했어.",
+"labels": [
+"more_time"
+]
+},
+{
+"text": "키가 작아서 안 닿네.",
+"labels": [
+"low_layout"
+]
+},
+{
+"text": "단계 줄여줘요.",
+"labels": [
+"simple_steps"
+]
+},
+{
+"text": "음성 안내 필요해.",
+"labels": [
+"voice_guide"
+]
+},
+{
+"text": "화면이 눈부셔요.",
+"labels": [
+"high_contrast"
+]
+},
+{
+"text": "영어는 없나요?",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "터치 말고 말로.",
+"labels": [
+"voice_order"
+]
+},
+{
+"text": "천천히 하고 싶어.",
+"labels": [
+"more_time"
+]
+},
+{
+"text": "복잡해서 싫다.",
+"labels": [
+"simple_steps"
+]
+},
+{
+"text": "글씨가 너무 작아.",
+"labels": [
+"big_text"
+]
+},
+{
+"text": "화면 글자가 안 보여.",
+"labels": [
+"big_text",
+"voice_guide"
+]
+},
+{
+"text": "선택이 너무 많아.",
+"labels": [
+"simple_steps"
+]
+},
+{
+"text": "손가락이 굳었어.",
+"labels": [
+"voice_order"
+]
+},
+{
+"text": "발음이 안 좋아?",
+"labels": [
+"voice_order"
+]
+},
+{
+"text": "휠체어라서 안 보여.",
+"labels": [
+"low_layout"
+]
+},
+{
+"text": "글씨 읽기 어려워.",
+"labels": [
+"big_text",
+"voice_guide"
+]
+},
+{
+"text": "색깔 구분 못 해.",
+"labels": [
+"high_contrast"
+]
+},
+{
+"text": "글씨가 흐릿해.",
+"labels": [
+"high_contrast",
+"big_text"
+]
+},
+{
+"text": "한국말 잘 몰라요.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "글씨 너무 작아.",
+"labels": [
+"big_text"
+]
+},
+{
+"text": "뭐 눌러야 해?",
+"labels": [
+"easy_words",
+"simple_steps"
+]
+},
+{
+"text": "시간이 짧네.",
+"labels": [
+"more_time"
+]
+},
+{
+"text": "이거 왜 안 돼?",
+"labels": [
+"easy_words",
+"simple_steps"
+]
+},
+{
+"text": "너무 복잡해.",
+"labels": [
+"simple_steps",
+"easy_words"
+]
+},
+{
+"text": "어려운 말 써.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "뒤에 사람 있어.",
+"labels": [
+"more_time"
+]
+},
+{
+"text": "버튼이 작아요.",
+"labels": [
+"big_text"
+]
+},
+{
+"text": "돋보기 필요해.",
+"labels": [
+"big_text"
+]
+},
+{
+"text": "눈이 침침해.",
+"labels": [
+"big_text",
+"high_contrast"
+]
+},
+{
+"text": "손이 떨려.",
+"labels": [
+"voice_order"
+]
+},
+{
+"text": "결제가 힘들어.",
+"labels": [
+"more_time",
+"simple_steps"
+]
+},
+{
+"text": "다시 시작돼.",
+"labels": [
+"more_time"
+]
+},
+{
+"text": "메뉴가 너무 많아.",
+"labels": [
+"simple_steps"
+]
+},
+{
+"text": "글씨 안 보여.",
+"labels": [
+"big_text",
+"voice_guide"
+]
+},
+{
+"text": "색깔 구분이 안 돼.",
+"labels": [
+"high_contrast"
+]
+},
+{
+"text": "화면이 희미해.",
+"labels": [
+"high_contrast"
+]
+},
+{
+"text": "읽어주면 좋겠다.",
+"labels": [
+"voice_guide"
+]
+},
+{
+"text": "어둡게 보여.",
+"labels": [
+"high_contrast",
+"big_text"
+]
+},
+{
+"text": "화면 너무 높아.",
+"labels": [
+"low_layout"
+]
+},
+{
+"text": "손이 안 닿아.",
+"labels": [
+"low_layout"
+]
+},
+{
+"text": "화면 내려줘.",
+"labels": [
+"low_layout"
+]
+},
+{
+"text": "높아서 안 보여.",
+"labels": [
+"low_layout"
+]
+},
+{
+"text": "터치가 안 돼.",
+"labels": [
+"voice_order"
+]
+},
+{
+"text": "손이 떨려서…",
+"labels": [
+"voice_order"
+]
+},
+{
+"text": "말로 주문하고 싶어.",
+"labels": [
+"voice_order"
+]
+},
+{
+"text": "자꾸 잘못 눌러.",
+"labels": [
+"voice_order",
+"more_time"
+]
+},
+{
+"text": "이거 뭐야?",
+"labels": [
+"easy_words",
+"simple_steps"
+]
+},
+{
+"text": "그림으로 알려줘.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "너무 어려워.",
+"labels": [
+"easy_words",
+"simple_steps"
+]
+},
+{
+"text": "천천히 할래.",
+"labels": [
+"more_time"
+]
+},
+{
+"text": "도와줘.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "한국말 어려워.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "번역 없어요?",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "말을 못 알아듣겠어.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "영어로 보고 싶어.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "어떻게 하는 거야?",
+"labels": [
+"easy_words",
+"simple_steps"
+]
+},
+{
+"text": "처음 해봐.",
+"labels": [
+"easy_words",
+"more_time"
+]
+},
+{
+"text": "복잡해서 모르겠어.",
+"labels": [
+"simple_steps",
+"easy_words"
+]
+},
+{
+"text": "자꾸 틀려.",
+"labels": [
+"more_time",
+"simple_steps"
+]
+},
+{
+"text": "부모님 못 하셔.",
+"labels": [
+"easy_words",
+"simple_steps",
+"more_time"
+]
+},
+{
+"text": "아이 혼자 못 해.",
+"labels": [
+"easy_words",
+"simple_steps"
+]
+},
+{
+"text": "이거 왜 이렇게 어려워?",
+"labels": [
+"simple_steps",
+"easy_words",
+"more_time"
+]
+},
+{
+"text": "글 읽기 힘들어.",
+"labels": [
+"voice_guide",
+"big_text"
+]
+},
+{
+"text": "너무 작아 안 보여.",
+"labels": [
+"big_text"
+]
+},
+{
+"text": "글씨가 너무 작아 안 보이고 터치 시간도 너무 짧아요.",
+"labels": [
+"big_text",
+"more_time"
+]
+},
+{
+"text": "화면이 너무 높아 팔이 아프고 용어도 어려워요.",
+"labels": [
+"low_layout",
+"easy_words"
+]
+},
+{
+"text": "흐릿한 색깔 구분이 어렵고, 손떨림 때문에 누르기 힘드네요.",
+"labels": [
+"high_contrast",
+"voice_order"
+]
+},
+{
+"text": "외국인이라 한국말이 어렵고, 그림만으론 이해가 안 돼요.",
+"labels": [
+"easy_words",
+"simple_steps"
+]
+},
+{
+"text": "버튼이 작아 누르기 어렵고, 다음 단계로 넘어가는 게 빨라요.",
+"labels": [
+"big_text",
+"more_time"
+]
+},
+{
+"text": "화면 글씨가 잘 안 보이고, 메뉴 선택지가 너무 많아요.",
+"labels": [
+"big_text",
+"simple_steps"
+]
+},
+{
+"text": "음성 안내 없이는 주문이 어렵고, 화면이 너무 높아요.",
+"labels": [
+"voice_guide",
+"low_layout"
+]
+},
+{
+"text": "무슨 말인지 모르겠고, 터치 실수가 잦아 처음부터 다시 해요.",
+"labels": [
+"easy_words",
+"more_time"
+]
+},
+{
+"text": "색깔이 비슷해서 안 보이고, 자꾸 다른 버튼이 눌러져요.",
+"labels": [
+"high_contrast",
+"more_time"
+]
+},
+{
+"text": "키가 작아 화면 윗부분이 안 보이고, 글씨가 너무 작아요.",
+"labels": [
+"low_layout",
+"big_text"
+]
+},
+{
+"text": "손이 떨려 터치가 어렵고, 영어가 많아 무슨 뜻인지 모르겠어요.",
+"labels": [
+"voice_order",
+"easy_words"
+]
+},
+{
+"text": "처음 쓰는 거라 헷갈리고, 선택할 게 많아 복잡해요.",
+"labels": [
+"easy_words",
+"simple_steps"
+]
+},
+{
+"text": "우리 아이가 글자를 못 읽고, 혼자 주문하기 어려워해요.",
+"labels": [
+"voice_guide",
+"easy_words"
+]
+},
+{
+"text": "화면이 흐릿하게 보이고, 시간 제한 때문에 조급해져요.",
+"labels": [
+"high_contrast",
+"more_time"
+]
+},
+{
+"text": "버튼이 너무 위에 있어 팔이 아프고, 글자가 너무 작아요.",
+"labels": [
+"low_layout",
+"big_text"
+]
+},
+{
+"text": "한국어 메뉴가 너무 어렵고, 그림 설명도 부족해요.",
+"labels": [
+"easy_words",
+"simple_steps"
+]
+},
+{
+"text": "눈이 침침해서 안 보이고, 선택 단계가 너무 많아 복잡해요.",
+"labels": [
+"big_text",
+"simple_steps"
+]
+},
+{
+"text": "손 떨림 때문에 자꾸 오류 나고, 자꾸 처음으로 돌아가요.",
+"labels": [
+"voice_order",
+"more_time"
+]
+},
+{
+"text": "글씨가 안 읽히는데 음성 안내도 없고, 화면이 높아요.",
+"labels": [
+"voice_guide",
+"low_layout"
+]
+},
+{
+"text": "헷갈리는 외래어가 많고, 화면 넘어가기까지 너무 빨라요.",
+"labels": [
+"easy_words",
+"more_time"
+]
+},
+{
+"text": "고대비가 아니라 색 구분이 어렵고, 선택지도 너무 많아요.",
+"labels": [
+"high_contrast",
+"simple_steps"
+]
+},
+{
+"text": "팔이 짧아 위쪽 버튼이 안 닿고, 글씨도 작아 안 보여요.",
+"labels": [
+"low_layout",
+"big_text"
+]
+},
+{
+"text": "손이 떨려 터치하기 어렵고, 화면 선택지도 너무 많아요.",
+"labels": [
+"voice_order",
+"simple_steps"
+]
+},
+{
+"text": "글씨가 작아 눈이 아프고, 화면 시간이 너무 짧아요.",
+"labels": [
+"big_text",
+"more_time"
+]
+},
+{
+"text": "한국말이 서툴러 이해가 어렵고, 그림도 복잡하게 보여요.",
+"labels": [
+"easy_words",
+"simple_steps"
+]
+},
+{
+"text": "화면이 너무 높이 있어 불편하고, 말로 주문하고 싶어요.",
+"labels": [
+"low_layout",
+"voice_order"
+]
+},
+{
+"text": "버튼이 작아 잘 안 눌리고, 설명이 어려워 헷갈려요.",
+"labels": [
+"big_text",
+"easy_words"
+]
+},
+{
+"text": "시간 제한 때문에 초조하고, 처음이라 뭘 눌러야 할지 모르겠어요.",
+"labels": [
+"more_time",
+"easy_words"
+]
+},
+{
+"text": "우리 엄마가 글씨를 못 보고, 버튼 누르는 게 힘들어하세요.",
+"labels": [
+"big_text",
+"voice_order"
+]
+},
+{
+"text": "색깔이 흐려 잘 안 보이고, 메뉴가 너무 많아 선택이 힘들어요.",
+"labels": [
+"high_contrast",
+"simple_steps"
+]
+},
+{
+"text": "화면이 높아서 터치하기 어렵고, 글자 크기도 작아요.",
+"labels": [
+"low_layout",
+"big_text"
+]
+},
+{
+"text": "영어가 너무 많아 이해가 어렵고, 주문 단계가 길어요.",
+"labels": [
+"easy_words",
+"simple_steps"
+]
+},
+{
+"text": "손떨림으로 잘못 눌러 자꾸 취소하고, 시간이 없어요.",
+"labels": [
+"voice_order",
+"more_time"
+]
+},
+{
+"text": "시력이 안 좋아 글자가 안 보이고, 음성 안내가 필요해요.",
+"labels": [
+"big_text",
+"voice_guide"
+]
+},
+{
+"text": "외래어가 많아 이해하기 어렵고, 화면이 너무 빨리 넘어가요.",
+"labels": [
+"easy_words",
+"more_time"
+]
+},
+{
+"text": "팔이 안 닿아 위쪽 버튼을 못 누르고, 그림도 복잡해요.",
+"labels": [
+"low_layout",
+"easy_words"
+]
+},
+{
+"text": "버튼이 작아 누르기 힘들고, 고대비 화면이 있으면 좋겠어요.",
+"labels": [
+"big_text",
+"high_contrast"
+]
+},
+{
+"text": "조작이 느려 시간 초과되고, 복잡한 메뉴는 너무 어려워요.",
+"labels": [
+"more_time",
+"simple_steps"
+]
+},
+{
+"text": "글씨가 안 보여 음성 안내가 필요하고, 화면이 너무 높아요.",
+"labels": [
+"voice_guide",
+"low_layout"
+]
+},
+{
+"text": "한국말이 서툴러 어려운데, 글씨도 작아 잘 안 보여요.",
+"labels": [
+"easy_words",
+"big_text"
+]
+},
+{
+"text": "손이 떨려 터치가 어렵고, 뭘 선택해야 할지 모르겠어요.",
+"labels": [
+"voice_order",
+"easy_words"
+]
+},
+{
+"text": "화면이 높아서 팔이 아프고, 단계가 너무 많아 힘들어요.",
+"labels": [
+"low_layout",
+"simple_steps"
+]
+},
+{
+"text": "눈이 침침해 잘 안 보이고, 결제 과정이 복잡하네요.",
+"labels": [
+"big_text",
+"simple_steps"
+]
+},
+{
+"text": "버튼 누르기가 힘들고, 시간 제한 때문에 조급해요.",
+"labels": [
+"voice_order",
+"more_time"
+]
+},
+{
+"text": "메뉴가 어려워 이해가 안 되고, 글씨도 작아 읽기 힘들어요.",
+"labels": [
+"easy_words",
+"big_text"
+]
+},
+{
+"text": "글씨가 작아 안 보이고, 누르는 것도 너무 느려요.",
+"labels": [
+"big_text",
+"more_time"
+]
+},
+{
+"text": "화면이 너무 높고, 팔을 뻗기 정말 힘들어요.",
+"labels": [
+"low_layout",
+"voice_order"
+]
+},
+{
+"text": "한국말도 어렵고, 그림만으론 이해가 안 돼요.",
+"labels": [
+"easy_words",
+"voice_guide"
+]
+},
+{
+"text": "글자가 흐릿한데, 대비도 안 돼서 눈이 아파요.",
+"labels": [
+"big_text",
+"high_contrast"
+]
+},
+{
+"text": "버튼이 작아 누르기 어렵고, 시간도 너무 짧아요.",
+"labels": [
+"voice_order",
+"more_time"
+]
+},
+{
+"text": "선택할 게 많아 헷갈리고, 복잡한 건 머리가 아파요.",
+"labels": [
+"easy_words",
+"simple_steps"
+]
+},
+{
+"text": "뭘 눌러야 할지 모르겠고, 다음 단계도 헷갈려요.",
+"labels": [
+"easy_words",
+"simple_steps"
+]
+},
+{
+"text": "화면 글씨가 작고, 조작이 느려 뒤에 눈치 보여요.",
+"labels": [
+"big_text",
+"more_time"
+]
+},
+{
+"text": "화면이 위쪽에 있어 안 보이고, 몸을 숙이기도 힘들어요.",
+"labels": [
+"low_layout",
+"voice_guide"
+]
+},
+{
+"text": "글씨가 희미한데, 음성 안내도 없어 답답해요.",
+"labels": [
+"high_contrast",
+"voice_guide"
+]
+},
+{
+"text": "한국어가 서툰데, 어려운 단어가 너무 많아요.",
+"labels": [
+"easy_words",
+"voice_guide"
+]
+},
+{
+"text": "터치 실수만 계속하고, 시간도 너무 촉박해요.",
+"labels": [
+"voice_order",
+"more_time"
+]
+},
+{
+"text": "순서가 복잡하고, 외래어는 정말 모르겠어요.",
+"labels": [
+"easy_words",
+"simple_steps"
+]
+},
+{
+"text": "글씨가 너무 작아 안 보이는데, 시간도 촉박해요.",
+"labels": [
+"big_text",
+"more_time"
+]
+},
+{
+"text": "화면이 높이 있고, 앉아서는 조작이 안 돼요.",
+"labels": [
+"low_layout",
+"voice_order"
+]
+},
+{
+"text": "글씨가 작고, 색깔이 비슷해서 구분이 안 돼요.",
+"labels": [
+"big_text",
+"high_contrast"
+]
+},
+{
+"text": "용어가 낯설고, 너무 여러 번 눌러야 해요.",
+"labels": [
+"easy_words",
+"simple_steps"
+]
+},
+{
+"text": "부모님이 글씨 못 보고, 누르다 시간 초과돼요.",
+"labels": [
+"big_text",
+"more_time"
+]
+},
+{
+"text": "한국어가 어려운데, 그림 설명도 복잡해요.",
+"labels": [
+"easy_words",
+"simple_steps"
+]
+},
+{
+"text": "작은 글씨를 읽기도 어렵고, 터치도 잘 안 돼요.",
+"labels": [
+"big_text",
+"voice_order"
+]
+},
+{
+"text": "뭐가 뭔지 모르겠고, 누를 게 왜 이렇게 많아요?",
+"labels": [
+"easy_words",
+"simple_steps"
+]
+},
+{
+"text": "화면이 빨리 넘어가는데, 글씨도 작아 못 읽겠어요.",
+"labels": [
+"more_time",
+"big_text"
+]
+},
+{
+"text": "팔이 안 닿는데, 음성 안내도 안 나와서 답답해요.",
+"labels": [
+"low_layout",
+"voice_guide"
+]
+},
+{
+"text": "색이 흐릿해서 안 보이고, 글자도 너무 작아요.",
+"labels": [
+"high_contrast",
+"big_text"
+]
+},
+{
+"text": "어떻게 시작하는지 모르겠고, 시간도 너무 짧아요.",
+"labels": [
+"easy_words",
+"more_time"
+]
+},
+{
+"text": "애가 그림 이해 못하고, 다음 단계로 못 넘어가요.",
+"labels": [
+"easy_words",
+"simple_steps"
+]
+},
+{
+"text": "한국말은 어렵고, 선택지가 너무 많아 헷갈려요.",
+"labels": [
+"easy_words",
+"simple_steps"
+]
+},
+{
+"text": "버튼 누르기가 힘든데, 글씨도 잘 안 보여요.",
+"labels": [
+"voice_order",
+"big_text"
+]
+},
+{
+"text": "글자 작아서 답답하고, 음성 안내도 없어서 불편해요.",
+"labels": [
+"big_text",
+"voice_guide"
+]
+},
+{
+"text": "화면이 너무 높고, 앉아서 보기엔 너무 멀어요.",
+"labels": [
+"low_layout",
+"voice_guide"
+]
+},
+{
+"text": "고대비가 아니라 눈이 부시고, 글씨도 흐릿해요.",
+"labels": [
+"high_contrast",
+"big_text"
+]
+},
+{
+"text": "뭘 눌러야 할지 몰라서 헤매고, 시간만 가요.",
+"labels": [
+"easy_words",
+"more_time"
+]
+},
+{
+"text": "엄마가 한국말 서툴고, 설명이 너무 어려워요.",
+"labels": [
+"easy_words",
+"voice_guide"
+]
+},
+{
+"text": "터치가 어려워서 말로 주문하고 싶고, 시간 제한도 싫어요.",
+"labels": [
+"voice_order",
+"more_time"
+]
+},
+{
+"text": "너무 많은 선택에 머리가 아프고, 복잡한 절차가 싫어요.",
+"labels": [
+"simple_steps",
+"easy_words"
+]
+},
+{
+"text": "버튼이 작아 누르기 어렵고, 화면이 너무 빨리 바뀌어요.",
+"labels": [
+"voice_order",
+"more_time"
+]
+},
+{
+"text": "화면이 높아 팔이 아프고, 서서 볼 수도 없어요.",
+"labels": [
+"low_layout",
+"voice_order"
+]
+},
+{
+"text": "글자가 희미하게 보이는데, 대비도 약해서 더 안 보여요.",
+"labels": [
+"high_contrast",
+"big_text"
+]
+},
+{
+"text": "말이 어려워서 못 고르고, 다음 단계도 모르겠어요.",
+"labels": [
+"easy_words",
+"simple_steps"
+]
+},
+{
+"text": "조작법이 낯설고, 너무 빨리 넘어가서 따라가기 힘들어요.",
+"labels": [
+"easy_words",
+"more_time"
+]
+},
+{
+"text": "할머니가 터치도 힘들고, 글자도 못 읽으세요.",
+"labels": [
+"voice_order",
+"voice_guide"
+]
+},
+{
+"text": "그림도 이해하기 힘들고, 시간도 너무 짧아요.",
+"labels": [
+"easy_words",
+"more_time"
+]
+},
+{
+"text": "글씨가 너무 작아 안 보이고, 손으로 누르다 자꾸 틀려요.",
+"labels": [
+"big_text",
+"voice_order"
+]
+},
+{
+"text": "화면이 높아 불편하고, 복잡해서 뭘 해야 할지 모르겠어요.",
+"labels": [
+"low_layout",
+"simple_steps"
+]
+},
+{
+"text": "메뉴가 너무 많고, 한글 설명이 어려워서 주문 못 해요.",
+"labels": [
+"easy_words",
+"simple_steps"
+]
+},
+{
+"text": "저번에 글씨가 너무 작아서 뭘 눌러야 할지 한참 찾았어.",
+"labels": [
+"big_text",
+"more_time"
+]
+},
+{
+"text": "화면 색깔이 비슷해서 메뉴 구분이 안 갔어. 사진도 흐릿하고.",
+"labels": [
+"high_contrast",
+"big_text"
+]
+},
+{
+"text": "외래어가 너무 많아서 이게 무슨 음식인지 도무지 알 수가 없더라고.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "화면 글씨를 누가 좀 읽어줬으면 좋겠어. 눈이 나빠서 읽기가 힘들어.",
+"labels": [
+"voice_guide",
+"big_text"
+]
+},
+{
+"text": "손이 떨려서 터치하기가 너무 어려워. 그냥 말로 주문하고 싶어.",
+"labels": [
+"voice_order",
+"big_text"
+]
+},
+{
+"text": "휠체어에 앉으니까 화면 위쪽은 아예 보이지도 않고, 팔도 안 닿아.",
+"labels": [
+"low_layout"
+]
+},
+{
+"text": "시간 제한이 있다고 자꾸 재촉해서 마음이 급해지니까 결국 처음으로 돌아갔어.",
+"labels": [
+"more_time"
+]
+},
+{
+"text": "옵션이 너무 많고 복잡해서 뭘 선택해야 할지 모르겠더라고. 그냥 기본으로 하면 좋겠어.",
+"labels": [
+"simple_steps",
+"easy_words"
+]
+},
+{
+"text": "뒷사람이 기다리는데, 글씨가 안 보여서 한참 걸렸더니 눈치가 보였어.",
+"labels": [
+"big_text",
+"more_time"
+]
+},
+{
+"text": "메뉴 선택지가 너무 많아서 우리 아이가 너무 헷갈려 했어.",
+"labels": [
+"simple_steps",
+"easy_words"
+]
+},
+{
+"text": "눈이 부셔서 화면 글씨가 잘 안 보여. 고대비 화면이었으면 좋겠어.",
+"labels": [
+"high_contrast",
+"big_text"
+]
+},
+{
+"text": "외국인이라 한국어가 서툰데, 쉬운 말로 설명되어 있으면 좋겠어.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "음성 안내가 없어서 화면을 혼자 읽으려니 너무 답답했어.",
+"labels": [
+"voice_guide"
+]
+},
+{
+"text": "손이 떨려서 자꾸 엉뚱한 버튼을 눌러서 주문을 여러 번 취소했어.",
+"labels": [
+"voice_order",
+"big_text",
+"more_time"
+]
+},
+{
+"text": "화면이 너무 높아서 뭘 보는지 한눈에 안 들어오고, 팔도 아팠어.",
+"labels": [
+"low_layout"
+]
+},
+{
+"text": "처음 써보는데 어디부터 눌러야 할지 몰라서 한참 헤맸어.",
+"labels": [
+"easy_words",
+"more_time"
+]
+},
+{
+"text": "옵션 고르다가 시간 초과돼서 처음부터 다시 시작해야 했어.",
+"labels": [
+"more_time",
+"simple_steps"
+]
+},
+{
+"text": "글자 색깔이 배경이랑 거의 똑같아서 아예 글씨가 안 보였어.",
+"labels": [
+"high_contrast",
+"big_text"
+]
+},
+{
+"text": "메뉴 그림이 너무 작고 흐릿해서 뭐가 뭔지 구분이 안 갔어.",
+"labels": [
+"big_text",
+"high_contrast"
+]
+},
+{
+"text": "우리 애는 어려운 단어는 이해를 잘 못 해서 그림으로 설명해 줘야 해.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "결제할 때 카드 넣는 데 찾다가 한참 걸렸어. 설명이 불친절했어.",
+"labels": [
+"easy_words",
+"more_time"
+]
+},
+{
+"text": "그냥 말로 주문할 수 있으면 좋을 텐데, 화면 터치가 너무 어려워.",
+"labels": [
+"voice_order"
+]
+},
+{
+"text": "음식 사진이 너무 작아서 뭘 골라야 할지 모르겠더라고.",
+"labels": [
+"big_text",
+"high_contrast"
+]
+},
+{
+"text": "한국말을 잘 못 해서 어떤 메뉴를 시켜야 할지 전혀 감이 안 왔어.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "화면이 갑자기 처음으로 돌아가서 다시 주문하느라 진땀 뺐어.",
+"labels": [
+"more_time"
+]
+},
+{
+"text": "메뉴 설명이 너무 장황해서 뭘 말하는지 한참을 읽어야 했어.",
+"labels": [
+"easy_words",
+"simple_steps"
+]
+},
+{
+"text": "휠체어에선 아예 팔이 안 닿는 버튼들이 있어서 주문을 못 했어.",
+"labels": [
+"low_layout"
+]
+},
+{
+"text": "할머니가 글씨가 안 보인다고 해서 제가 대신 눌러드렸어요.",
+"labels": [
+"big_text",
+"voice_guide"
+]
+},
+{
+"text": "손이 자꾸 떨려서 간신히 눌러도 자꾸 옆 버튼이 눌려서 화가 났어.",
+"labels": [
+"voice_order",
+"big_text"
+]
+},
+{
+"text": "옵션이 너무 세분화되어 있어서 선택하는데 너무 오래 걸렸어.",
+"labels": [
+"simple_steps",
+"more_time"
+]
+},
+{
+"text": "어려운 용어가 많아서 무슨 뜻인지 몰라 결국 직원분께 물어봤어.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "화면이 너무 밝아서 눈이 아프고 글씨가 잘 보이지 않았어.",
+"labels": [
+"high_contrast"
+]
+},
+{
+"text": "외국어 지원 기능이 있어도 번역이 이상해서 이해하기 어려웠어.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "화면이 너무 빠르게 넘어가서 글씨를 다 읽기도 전에 다음으로 넘어갔어.",
+"labels": [
+"more_time"
+]
+},
+{
+"text": "화면이 계속 깜빡거려서 눈이 피로하고 글씨가 더 안 보였어.",
+"labels": [
+"high_contrast"
+]
+},
+{
+"text": "메뉴판에 있는 메뉴 이름이랑 키오스크 메뉴 이름이 달라서 헷갈렸어.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "음성 안내가 없어서 뭘 선택했는지 다시 확인하기가 힘들었어.",
+"labels": [
+"voice_guide"
+]
+},
+{
+"text": "화면이 너무 높이 있어서 고개를 계속 들고 있느라 목이 아팠어.",
+"labels": [
+"low_layout"
+]
+},
+{
+"text": "우리 아이가 선택지가 많으면 불안해하는데, 키오스크가 너무 복잡했어.",
+"labels": [
+"simple_steps",
+"easy_words"
+]
+},
+{
+"text": "터치감이 좋지 않아서 여러 번 눌러도 인식이 잘 안 되었어.",
+"labels": [
+"voice_order",
+"more_time"
+]
+},
+{
+"text": "글씨 크기를 조절하는 기능이 없어서 너무 불편했어.",
+"labels": [
+"big_text"
+]
+},
+{
+"text": "메뉴 색상이 비슷해서 메인 메뉴와 서브 메뉴 구분이 어려웠어.",
+"labels": [
+"high_contrast",
+"big_text"
+]
+},
+{
+"text": "한국말이 서툴러서 결국 옆에 있던 사람이 대신 주문해 줬어.",
+"labels": [
+"easy_words",
+"more_time"
+]
+},
+{
+"text": "화면 아래쪽에 결제 버튼이 있었으면 휠체어에서 더 편했을 거야.",
+"labels": [
+"low_layout"
+]
+},
+{
+"text": "버튼 누르다가 자꾸 엉뚱한 거 눌러서 다시 시작하는 게 너무 번거로웠어.",
+"labels": [
+"big_text",
+"more_time"
+]
+},
+{
+"text": "글씨가 너무 작아서 뭐가 뭔지 보이지도 않아서 한참을 눈 비비고 봤어.",
+"labels": [
+"big_text",
+"high_contrast",
+"more_time"
+]
+},
+{
+"text": "메뉴 고르는 데 시간이 너무 짧아서 아직 다 보지도 못했는데 다음 화면으로 넘어가 버렸지 뭐야.",
+"labels": [
+"more_time",
+"simple_steps"
+]
+},
+{
+"text": "돋보기 써도 화면 글씨가 희미해서 어떤 버튼을 눌러야 할지 몰라 당황했어.",
+"labels": [
+"high_contrast",
+"big_text",
+"more_time"
+]
+},
+{
+"text": "버튼이 너무 조그마해서 손가락으로 누르다가 자꾸 엉뚱한 걸 눌러서 다시 해야 했어.",
+"labels": [
+"big_text",
+"voice_order"
+]
+},
+{
+"text": "뒷사람 기다리는데 자꾸 시간은 가고, 결국 못하고 직원 불렀지 뭐야.",
+"labels": [
+"more_time",
+"simple_steps"
+]
+},
+{
+"text": "이놈의 키오스크는 왜 이렇게 말이 빠른지, 안내를 들어도 도통 무슨 말인지 모르겠어.",
+"labels": [
+"easy_words",
+"voice_guide"
+]
+},
+{
+"text": "결제할 때 어디다 카드를 넣어야 하는지 몰라서 한참을 헤맸어.",
+"labels": [
+"easy_words",
+"voice_guide",
+"simple_steps"
+]
+},
+{
+"text": "화면 빛 반사가 너무 심해서 글씨가 아예 안 보이고 눈이 너무 부셨어.",
+"labels": [
+"high_contrast",
+"big_text"
+]
+},
+{
+"text": "흐릿하게 보이는 글씨 때문에 메뉴를 제대로 파악하기 어려워서 답답했어.",
+"labels": [
+"high_contrast",
+"big_text",
+"voice_guide"
+]
+},
+{
+"text": "선택 여부를 나타내는 색깔 변화가 미미해서 눌린 건지 안 눌린 건지 구분이 안 됐어.",
+"labels": [
+"high_contrast"
+]
+},
+{
+"text": "음성 안내 기능이 없어서 눈으로 다 읽어야 하는데, 작은 글씨는 아예 보이지도 않아.",
+"labels": [
+"voice_guide",
+"big_text"
+]
+},
+{
+"text": "화면에 손가락을 대도 반응이 없어서 어디를 눌러야 할지 감으로 맞춰야 했어.",
+"labels": [
+"high_contrast",
+"voice_guide",
+"big_text"
+]
+},
+{
+"text": "화면이 너무 높이 있어서 손을 뻗어도 닿지 않아서 위쪽 메뉴는 아예 못 골랐어.",
+"labels": [
+"low_layout"
+]
+},
+{
+"text": "결제 단말기가 위쪽에 달려있어서 카드를 넣거나 휴대폰을 갖다 대기가 너무 불편했어.",
+"labels": [
+"low_layout"
+]
+},
+{
+"text": "주문 완료 후 나오는 영수증 투출구가 너무 높아서 받기 힘들었어.",
+"labels": [
+"low_layout"
+]
+},
+{
+"text": "아래쪽 화면은 잘 보이지만, 위쪽으로 이동하려면 목을 너무 많이 젖혀야 해서 힘들었어.",
+"labels": [
+"low_layout",
+"big_text"
+]
+},
+{
+"text": "키오스크 앞에 휠체어 들어갈 공간이 없어서 비스듬히 서서 주문해야 했어.",
+"labels": [
+"low_layout"
+]
+},
+{
+"text": "손이 계속 떨려서 정확히 누르기가 힘들고, 다른 메뉴를 자꾸 잘못 눌렀어.",
+"labels": [
+"voice_order",
+"big_text"
+]
+},
+{
+"text": "작은 버튼을 겨우 눌렀는데 인식이 잘 안 돼서 여러 번 다시 눌러야 했어.",
+"labels": [
+"voice_order",
+"big_text"
+]
+},
+{
+"text": "말로 주문하는 기능이 있으면 좋겠는데, 매번 터치하려니 손이 아파.",
+"labels": [
+"voice_order"
+]
+},
+{
+"text": "옵션 선택지가 너무 많고 촘촘해서 잘못 누를까 봐 조마조마했어.",
+"labels": [
+"big_text",
+"voice_order",
+"simple_steps"
+]
+},
+{
+"text": "숫자 입력할 때도 손 떨려서 틀릴까 봐 불안해. 음성으로 입력하면 좋겠다.",
+"labels": [
+"voice_order"
+]
+},
+{
+"text": "키오스크에서 쓰는 말이 너무 어려워서 무슨 말인지 하나도 모르겠어.",
+"labels": [
+"easy_words",
+"simple_steps",
+"voice_guide"
+]
+},
+{
+"text": "메뉴가 너무 복잡하고 그림도 이해하기 어려워서 한참을 쳐다보기만 했어.",
+"labels": [
+"easy_words",
+"simple_steps"
+]
+},
+{
+"text": "시간이 너무 빨리 지나서 아직 뭘 고를지 생각도 못 했는데 처음으로 돌아가 버렸어.",
+"labels": [
+"more_time",
+"easy_words",
+"simple_steps"
+]
+},
+{
+"text": "음성 안내가 없으니까 글씨를 읽는 게 너무 힘들고 어려웠어.",
+"labels": [
+"voice_guide",
+"easy_words"
+]
+},
+{
+"text": "선택지가 너무 많아서 헷갈리고, 내가 원하는 걸 찾을 수가 없었어.",
+"labels": [
+"simple_steps",
+"easy_words"
+]
+},
+{
+"text": "결제할 때도 카드를 어디에 넣어야 하는지, 어떻게 해야 하는지 몰라서 엄마를 기다렸어.",
+"labels": [
+"easy_words",
+"simple_steps"
+]
+},
+{
+"text": "한국어 메뉴가 너무 많고 어려워서 이해하기 힘들었고, 외국어 지원도 없었어.",
+"labels": [
+"easy_words",
+"voice_guide"
+]
+},
+{
+"text": "영어 메뉴가 있긴 한데, 번역이 이상해서 오히려 더 헷갈리더라고.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "음성 안내 기능이라도 있으면 듣고 단어를 찾아볼 수 있을 텐데, 너무 불친절해.",
+"labels": [
+"voice_guide",
+"easy_words"
+]
+},
+{
+"text": "그림만 보고 주문하려니 내가 원하는 게 맞는지 확신이 없었어.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "옵션 선택할 때 한국어로 된 외래어가 많아서 무슨 뜻인지 전혀 몰랐어.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "화면에 나오는 안내 문구가 너무 빨라서 읽을 시간이 부족했어.",
+"labels": [
+"more_time",
+"easy_words"
+]
+},
+{
+"text": "키오스크 사용이 처음이라 뭘 눌러야 할지 몰라서 한참을 서성이다가 결국 직원한테 부탁했어.",
+"labels": [
+"easy_words",
+"simple_steps",
+"more_time"
+]
+},
+{
+"text": "단계가 너무 많고 복잡해서 중간에 포기하고 그냥 나왔어.",
+"labels": [
+"simple_steps",
+"more_time"
+]
+},
+{
+"text": "메뉴 설명이 부족해서 어떤 메뉴인지 정확히 알기 어려웠어.",
+"labels": [
+"easy_words",
+"simple_steps"
+]
+},
+{
+"text": "결제 방법이 다양해서 뭘 선택해야 할지 고민하다가 시간이 지나서 처음으로 돌아갔어.",
+"labels": [
+"simple_steps",
+"more_time",
+"easy_words"
+]
+},
+{
+"text": "뒤에서 기다리는 사람 때문에 마음이 급해서 대충 누르다 보니 잘못 주문했어.",
+"labels": [
+"more_time",
+"simple_steps"
+]
+},
+{
+"text": "엄마가 글씨가 작아서 못 읽는다고 하셔서 옆에서 계속 메뉴를 읽어드려야 했어.",
+"labels": [
+"big_text",
+"voice_guide"
+]
+},
+{
+"text": "할머니가 화면 터치를 어려워하셔서 내가 항상 같이 와서 대신 눌러드려야 해.",
+"labels": [
+"voice_order",
+"big_text"
+]
+},
+{
+"text": "아이가 발달이 느려서 키오스크 사용을 어려워해서 내가 그림 보면서 설명해줘야 해.",
+"labels": [
+"easy_words",
+"simple_steps"
+]
+},
+{
+"text": "휠체어 타신 아빠가 키오스크 화면이 높아서 불편해하셔서 내가 대신 주문했어.",
+"labels": [
+"low_layout"
+]
+},
+{
+"text": "우리 아빠는 영어를 못하시는데 외국어 지원이 안 되니 내가 옆에서 번역해줘야 해.",
+"labels": [
+"easy_words"
+]
+},
+{
+"text": "시력이 안 좋으셔서 항상 키오스크 이용을 꺼리시는데, 음성 안내라도 있으면 좋겠어.",
+"labels": [
+"voice_guide",
+"big_text"
+]
+}
+],
+"generator": "gemini-2.5-flash"
+}

@@ -1,0 +1,32 @@
+{
+"miss": [
+[
+"화면 밑에 있는건 누르기가 힘드네",
+[
+"low_layout"
+],
+[
+"big_text",
+"voice_order"
+]
+],
+[
+"색이 좀 더 선명했으면 글자가 잘 보일 것 같아요.",
+[
+"high_contrast"
+],
+[
+"big_text"
+]
+],
+[
+"말로 설명해 주시면 주문하기 편할 것 같아요.",
+[
+"voice_guide"
+],
+[
+"voice_order"
+]
+]
+]
+}
