@@ -41,7 +41,7 @@
 
   const mine = { scale: 1 };
   MWQ.FLAG.forEach(f => mine[f] = false);
-  try { const saved = MWQ.decodeProfile(localStorage.getItem('mwq')); if (saved) Object.assign(mine, saved); } catch (e) {}
+  try { const saved = MWQ.decodeProfile(localStorage.getItem('mwq')); if (saved) Object.assign(mine, saved, { confirmed: true }); } catch (e) {}
 
   const EXAMPLES = ['눈이 침침해서 글씨가 안 보여요', '손이 떨려서 화면 누르기가 힘들어요', '휠체어라 화면이 너무 높아요', '한국말이 아직 어려워요', '뒷사람 눈치 보여서 급해져요', '메뉴가 너무 많아서 헷갈려', '우리 엄마가 글을 잘 못 읽으세요'];
   EXAMPLES.forEach(t => $('#needChips').append(el('button', { onclick: () => { $('#needText').value = t; runNeed(); } }, esc(t))));
@@ -59,26 +59,36 @@
     const on = new Set(picked.map(x => x.label));
     if (on.has('voice_order')) on.add('touch_assist');
     on.forEach(l => mine[l] = true);
+    mine.confirmed = false;
     if (on.has('big_text') && mine.scale < 1.6) mine.scale = 1.6;
     const box = $('#needOut'); box.hidden = false;
-    box.innerHTML = `<h3>AI 추천: ${[...on].map(l => LAB[l][1]).join(', ')}</h3><p class="hint">추천은 오른쪽 설정에 켜 두었어요. 맞지 않으면 끄면 됩니다.${on.has('touch_assist') ? ' 손 사용이 어렵다고 보여 터치 보정도 함께 켰어요.' : ''}</p><div class="bars">${barsHTML(probs, on)}</div>`;
+    box.innerHTML = `<h3>AI 추천: ${[...on].map(l => LAB[l][1]).join(', ')}</h3><p class="hint">추천을 오른쪽 설정에 미리 켜 두었어요. 맞지 않으면 끄고, 확인한 뒤 「이대로 QR 만들기」를 누르세요.${on.has('touch_assist') ? ' 손 사용이 어렵다고 보여 터치 보정도 함께 켰어요.' : ''}</p><div class="bars">${barsHTML(probs, on)}</div>`;
     renderMine();
   }
 
   const SIZES = [1, 1.3, 1.6, 2];
   function renderMine() {
     const sz = $('#sizes'); sz.innerHTML = '';
-    SIZES.forEach(s => sz.append(el('button', { className: mine.scale === s ? 'sel' : '', style: `font-size:${Math.round(13 * s)}px`, onclick: () => { mine.scale = s; if (s >= 1.6) mine.big_text = true; renderMine(); } }, '따뜻한 커피 한 잔 주세요')));
+    SIZES.forEach(s => sz.append(el('button', { className: mine.scale === s ? 'sel' : '', style: `font-size:${Math.round(13 * s)}px`, onclick: () => { mine.scale = s; if (s >= 1.6) mine.big_text = true; mine.confirmed = false; renderMine(); } }, '따뜻한 커피 한 잔 주세요')));
     const tg = $('#toggles'); tg.innerHTML = '';
-    MWQ.FLAG.forEach(f => tg.append(el('button', { className: mine[f] ? 'on' : '', onclick: () => { mine[f] = !mine[f]; renderMine(); } }, `<span>${LAB[f][0]}</span>${LAB[f][1]}`)));
+    MWQ.FLAG.forEach(f => tg.append(el('button', { className: mine[f] ? 'on' : '', onclick: () => { mine[f] = !mine[f]; mine.confirmed = false; renderMine(); } }, `<span>${LAB[f][0]}</span>${LAB[f][1]}`)));
     const code = MWQ.encodeProfile(mine);
-    try { localStorage.setItem('mwq', code); } catch (e) {}
-    const q = qrcode(2, 'M'); q.addData(code); q.make();
-    $('#qr').innerHTML = q.createImgTag(6, 8);
-    $('#qrCode').textContent = code;
+    if (mine.confirmed) {
+      try { localStorage.setItem('mwq', code); } catch (e) {}
+      const q = qrcode(2, 'M'); q.addData(code); q.make();
+      $('#qr').innerHTML = q.createImgTag(6, 8);
+      $('#qrCode').textContent = code;
+      $('#qrMake').hidden = true;
+    } else {
+      $('#qr').innerHTML = '<div class="qr-wait">설정을 확인한 뒤<br>아래 단추를 누르면<br>QR이 만들어져요</div>';
+      $('#qrCode').textContent = '';
+      $('#qrMake').hidden = false;
+    }
+    $('#qrSave').disabled = $('#qrTry').disabled = !mine.confirmed;
     const on = MWQ.FLAG.filter(f => mine[f]);
     $('#qrSum').innerHTML = (on.length ? on.map(f => `<li>${LAB[f][0]} ${LAB[f][1]}</li>`).join('') : '<li>아직 켠 설정이 없어요</li>') + `<li>글자 ${mine.scale}배</li>`;
   }
+  $('#qrMake').onclick = () => { mine.confirmed = true; renderMine(); };
   $('#qrSave').onclick = () => {
     const img = $('#qr img'); if (!img) return;
     const c = document.createElement('canvas'); c.width = 600; c.height = 720;
@@ -130,7 +140,7 @@
     document.querySelectorAll('#kinds button').forEach(x => x.classList.toggle('on', x === b));
     if (prof) applyProfile(prof, '같은 QR'); else resetKiosk();
   });
-  $('#useMine').onclick = () => applyProfile(Object.assign({}, mine), '내가 만든 QR');
+  $('#useMine').onclick = () => { if (!mine.confirmed) { log('① 탭에서 설정을 확인하고 「이대로 QR 만들기」를 먼저 눌러 주세요.'); return; } applyProfile(Object.assign({}, mine), '내가 만든 QR'); };
   $('#resetK').onclick = () => { resetKiosk(); log('원래 화면으로 돌아왔어요. 설정은 남기지 않았어요.'); };
 
   function applyProfile(p, who) {
@@ -397,7 +407,7 @@
     <p class="hint">${fe ? esc(fe.note) + ' ' : ''}개발 중 규칙을 고칠 때 쓴 문장(${oeval ? oeval.res.n : '-'}개)은 최종 점수에 넣지 않았습니다. 어떤 주문이든 담기 전에 화면과 소리로 한 번 더 확인합니다.</p></div>
   <div class="card"><h2>③ 일반 키오스크와 비교(같은 주문, 단계 수)</h2>
     <table><tr><th>과제</th><th>일반</th><th>내 방식</th></tr>
-    <tr><td>시원한 커피 2잔, 크게, 가져가기</td><td>메뉴 누르기 → 수량 + → 옵션 2개 → 담기 → 결제 (6번 누름, 메뉴 찾기 별도)</td><td>QR 보여 주기 → 말하기 단추 → 「아아 두 잔 크게 포장」 → 담기 → 결제 (3번 누름)</td></tr>
+    <tr><td>시원한 커피 2잔, 크게, 가져가기</td><td>메뉴 누르기 → 수량 + → 옵션 2개 → 담기 → 결제 (6번 누름, 메뉴 찾기 별도)</td><td>QR 보여 주기 → 말하기 단추 → 「아아 두 잔 크게 포장」 → 담기 → 결제 → 재확인 「네, 주문」 (4번 누름)</td></tr>
     <tr><td>시간 제한</td><td>90초 뒤 처음으로</td><td>제한 없음</td></tr>
     <tr><td>글자 크기</td><td>13px 고정</td><td>QR에 저장한 배율(최대 2배)</td></tr>
     <tr><td>병원 접수(같은 QR)</td><td>작은 버튼 · 90초 제한 · 확인 화면 없음</td><td>쉬운 말 진료과 · 제한 없음 · 접수 전 재확인 · 지원 안 되는 기능은 직원 부르기로 전환</td></tr></table>
