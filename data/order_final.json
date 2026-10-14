@@ -1,0 +1,807 @@
+{
+"test": [
+{
+"text": "아아 두 잔, 테이크아웃.",
+"item": "americano_ice",
+"qty": 2,
+"options": [
+"테이크아웃"
+],
+"style": "짧은 반말·명령조"
+},
+{
+"text": "뜨아 하나, 매장 이용.",
+"item": "americano_hot",
+"qty": 1,
+"options": [
+"매장 이용"
+],
+"style": "짧은 반말·명령조"
+},
+{
+"text": "아아 두 잔, 샷 추가.",
+"item": "americano_ice",
+"qty": 2,
+"options": [
+"샷 추가(+500)"
+],
+"style": "짧은 반말·명령조"
+},
+{
+"text": "따뜻한 라떼 세 잔, 테이크아웃.",
+"item": "latte_hot",
+"qty": 3,
+"options": [
+"테이크아웃"
+],
+"style": "짧은 반말·명령조"
+},
+{
+"text": "아이스 라떼 두 개, 사이즈 업.",
+"item": "latte_ice",
+"qty": 2,
+"options": [
+"사이즈 업(+500)"
+],
+"style": "짧은 반말·명령조"
+},
+{
+"text": "달달한 거 하나, 시럽 추가.",
+"item": "vanilla_latte",
+"qty": 1,
+"options": [
+"시럽 추가"
+],
+"style": "짧은 반말·명령조"
+},
+{
+"text": "콜드브루 두 잔, 매장 이용.",
+"item": "cold_brew",
+"qty": 2,
+"options": [
+"매장 이용"
+],
+"style": "짧은 반말·명령조"
+},
+{
+"text": "디카페인 아메리카노 하나, 텀블러 사용.",
+"item": "decaf_americano",
+"qty": 1,
+"options": [
+"텀블러 사용(-300)"
+],
+"style": "짧은 반말·명령조"
+},
+{
+"text": "아인슈페너 두 개, 테이크아웃.",
+"item": "einspanner",
+"qty": 2,
+"options": [
+"테이크아웃"
+],
+"style": "짧은 반말·명령조"
+},
+{
+"text": "초코 하나, 얼음 적게.",
+"item": "choco",
+"qty": 1,
+"options": [
+"얼음 적게"
+],
+"style": "짧은 반말·명령조"
+},
+{
+"text": "녹차 두 잔, 사이즈 업.",
+"item": "greentea_latte",
+"qty": 2,
+"options": [
+"사이즈 업(+500)"
+],
+"style": "짧은 반말·명령조"
+},
+{
+"text": "레몬에이드 하나, 테이크아웃.",
+"item": "lemonade",
+"qty": 1,
+"options": [
+"테이크아웃"
+],
+"style": "짧은 반말·명령조"
+},
+{
+"text": "자몽 두 잔, 매장 이용.",
+"item": "grapefruit_ade",
+"qty": 2,
+"options": [
+"매장 이용"
+],
+"style": "짧은 반말·명령조"
+},
+{
+"text": "유자차 하나, 텀블러 사용.",
+"item": "yuja_tea",
+"qty": 1,
+"options": [
+"텀블러 사용(-300)"
+],
+"style": "짧은 반말·명령조"
+},
+{
+"text": "캐모마일 두 잔, 테이크아웃.",
+"item": "chamomile",
+"qty": 2,
+"options": [
+"테이크아웃"
+],
+"style": "짧은 반말·명령조"
+},
+{
+"text": "딸기 스무디 하나, 매장 이용.",
+"item": "strawberry_smoothie",
+"qty": 1,
+"options": [
+"매장 이용"
+],
+"style": "짧은 반말·명령조"
+},
+{
+"text": "요거트 두 잔, 사이즈 업.",
+"item": "plain_yogurt",
+"qty": 2,
+"options": [
+"사이즈 업(+500)"
+],
+"style": "짧은 반말·명령조"
+},
+{
+"text": "아아 세 잔, 샷 추가.",
+"item": "americano_ice",
+"qty": 3,
+"options": [
+"샷 추가(+500)"
+],
+"style": "짧은 반말·명령조"
+},
+{
+"text": "뜨거운 라떼 두 개, 테이크아웃.",
+"item": "latte_hot",
+"qty": 2,
+"options": [
+"테이크아웃"
+],
+"style": "짧은 반말·명령조"
+},
+{
+"text": "달달한 거 두 잔, 사이즈 업.",
+"item": "vanilla_latte",
+"qty": 2,
+"options": [
+"사이즈 업(+500)"
+],
+"style": "짧은 반말·명령조"
+},
+{
+"text": "연한 아메 두 잔, 테이크아웃.",
+"item": "decaf_americano",
+"qty": 2,
+"options": [
+"테이크아웃"
+],
+"style": "짧은 반말·명령조"
+},
+{
+"text": "초코 하나, 시럽 추가.",
+"item": "choco",
+"qty": 1,
+"options": [
+"시럽 추가"
+],
+"style": "짧은 반말·명령조"
+},
+{
+"text": "녹차라떼 두 잔, 매장 이용.",
+"item": "greentea_latte",
+"qty": 2,
+"options": [
+"매장 이용"
+],
+"style": "짧은 반말·명령조"
+},
+{
+"text": "상큼한 거 두 잔, 매장 이용.",
+"item": "lemonade",
+"qty": 2,
+"options": [
+"매장 이용"
+],
+"style": "짧은 반말·명령조"
+},
+{
+"text": "자몽 두 잔, 테이크아웃.",
+"item": "grapefruit_ade",
+"qty": 2,
+"options": [
+"테이크아웃"
+],
+"style": "짧은 반말·명령조"
+},
+{
+"text": "유자 하나, 테이크아웃.",
+"item": "yuja_tea",
+"qty": 1,
+"options": [
+"테이크아웃"
+],
+"style": "짧은 반말·명령조"
+},
+{
+"text": "캐모마일 하나, 텀블러 사용.",
+"item": "chamomile",
+"qty": 1,
+"options": [
+"텀블러 사용(-300)"
+],
+"style": "짧은 반말·명령조"
+},
+{
+"text": "딸기 두 잔, 테이크아웃.",
+"item": "strawberry_smoothie",
+"qty": 2,
+"options": [
+"테이크아웃"
+],
+"style": "짧은 반말·명령조"
+},
+{
+"text": "요거트 하나, 얼음 적게.",
+"item": "plain_yogurt",
+"qty": 1,
+"options": [
+"얼음 적게"
+],
+"style": "짧은 반말·명령조"
+},
+{
+"text": "아아 두 잔, 사이즈 업.",
+"item": "americano_ice",
+"qty": 2,
+"options": [
+"사이즈 업(+500)"
+],
+"style": "짧은 반말·명령조"
+},
+{
+"text": "아아 두 개, 테이크아웃",
+"item": "americano_ice",
+"qty": 2,
+"options": [
+"테이크아웃"
+],
+"style": "외국인이 서툰 한국어로 말한 것, 조사 생략"
+},
+{
+"text": "따뜻한 라떼 하나, 시럽 추가",
+"item": "latte_hot",
+"qty": 1,
+"options": [
+"시럽 추가"
+],
+"style": "외국인이 서툰 한국어로 말한 것, 조사 생략"
+},
+{
+"text": "초코 두 개, 사이즈 업",
+"item": "choco",
+"qty": 2,
+"options": [
+"사이즈 업(+500)"
+],
+"style": "외국인이 서툰 한국어로 말한 것, 조사 생략"
+},
+{
+"text": "차가운 블랙 세 개, 얼음 적게",
+"item": "americano_ice",
+"qty": 3,
+"options": [
+"얼음 적게"
+],
+"style": "외국인이 서툰 한국어로 말한 것, 조사 생략"
+},
+{
+"text": "바닐라 커피 하나, 샷 추가",
+"item": "vanilla_latte",
+"qty": 1,
+"options": [
+"샷 추가(+500)"
+],
+"style": "외국인이 서툰 한국어로 말한 것, 조사 생략"
+},
+{
+"text": "노란 차 두 개, 매장 이용",
+"item": "yuja_tea",
+"qty": 2,
+"options": [
+"매장 이용"
+],
+"style": "외국인이 서툰 한국어로 말한 것, 조사 생략"
+},
+{
+"text": "딸기 음료 하나, 텀블러 사용",
+"item": "strawberry_smoothie",
+"qty": 1,
+"options": [
+"텀블러 사용(-300)"
+],
+"style": "외국인이 서툰 한국어로 말한 것, 조사 생략"
+},
+{
+"text": "크림 커피 하나, 테이크아웃",
+"item": "einspanner",
+"qty": 1,
+"options": [
+"테이크아웃"
+],
+"style": "외국인이 서툰 한국어로 말한 것, 조사 생략"
+},
+{
+"text": "초록색 라떼 두 개, 사이즈 업",
+"item": "greentea_latte",
+"qty": 2,
+"options": [
+"사이즈 업(+500)"
+],
+"style": "외국인이 서툰 한국어로 말한 것, 조사 생략"
+},
+{
+"text": "레몬 하나, 매장 이용",
+"item": "lemonade",
+"qty": 1,
+"options": [
+"매장 이용"
+],
+"style": "외국인이 서툰 한국어로 말한 것, 조사 생략"
+},
+{
+"text": "디카페인 블랙 두 개, 테이크아웃",
+"item": "decaf_americano",
+"qty": 2,
+"options": [
+"테이크아웃"
+],
+"style": "외국인이 서툰 한국어로 말한 것, 조사 생략"
+},
+{
+"text": "자몽 하나, 시럽 추가",
+"item": "grapefruit_ade",
+"qty": 1,
+"options": [
+"시럽 추가"
+],
+"style": "외국인이 서툰 한국어로 말한 것, 조사 생략"
+},
+{
+"text": "꽃차 하나, 매장 이용",
+"item": "chamomile",
+"qty": 1,
+"options": [
+"매장 이용"
+],
+"style": "외국인이 서툰 한국어로 말한 것, 조사 생략"
+},
+{
+"text": "하얀 요거트 두 개, 사이즈 업",
+"item": "plain_yogurt",
+"qty": 2,
+"options": [
+"사이즈 업(+500)"
+],
+"style": "외국인이 서툰 한국어로 말한 것, 조사 생략"
+},
+{
+"text": "찬 커피 세 잔, 텀블러 사용",
+"item": "cold_brew",
+"qty": 3,
+"options": [
+"텀블러 사용(-300)"
+],
+"style": "외국인이 서툰 한국어로 말한 것, 조사 생략"
+},
+{
+"text": "차가운 라떼 하나, 샷 추가",
+"item": "latte_ice",
+"qty": 1,
+"options": [
+"샷 추가(+500)"
+],
+"style": "외국인이 서툰 한국어로 말한 것, 조사 생략"
+},
+{
+"text": "달콤한 차 두 개, 테이크아웃",
+"item": "yuja_tea",
+"qty": 2,
+"options": [
+"테이크아웃"
+],
+"style": "외국인이 서툰 한국어로 말한 것, 조사 생략"
+},
+{
+"text": "아아 세 개, 얼음 적게",
+"item": "americano_ice",
+"qty": 3,
+"options": [
+"얼음 적게"
+],
+"style": "외국인이 서툰 한국어로 말한 것, 조사 생략"
+},
+{
+"text": "뜨거운 블랙 두 잔, 테이크아웃",
+"item": "americano_hot",
+"qty": 2,
+"options": [
+"테이크아웃"
+],
+"style": "외국인이 서툰 한국어로 말한 것, 조사 생략"
+},
+{
+"text": "라떼 하나, 디카페인 변경",
+"item": "latte_hot",
+"qty": 1,
+"options": [
+"디카페인 변경(+500)"
+],
+"style": "외국인이 서툰 한국어로 말한 것, 조사 생략"
+},
+{
+"text": "초코 두 개, 샷 추가",
+"item": "choco",
+"qty": 2,
+"options": [
+"샷 추가(+500)"
+],
+"style": "외국인이 서툰 한국어로 말한 것, 조사 생략"
+},
+{
+"text": "딸기 하나, 사이즈 업",
+"item": "strawberry_smoothie",
+"qty": 1,
+"options": [
+"사이즈 업(+500)"
+],
+"style": "외국인이 서툰 한국어로 말한 것, 조사 생략"
+},
+{
+"text": "레몬 하나, 테이크아웃",
+"item": "lemonade",
+"qty": 1,
+"options": [
+"테이크아웃"
+],
+"style": "외국인이 서툰 한국어로 말한 것, 조사 생략"
+},
+{
+"text": "차가운 라떼 두 개, 샷 추가",
+"item": "latte_ice",
+"qty": 2,
+"options": [
+"샷 추가(+500)"
+],
+"style": "외국인이 서툰 한국어로 말한 것, 조사 생략"
+},
+{
+"text": "자몽 하나, 매장 이용",
+"item": "grapefruit_ade",
+"qty": 1,
+"options": [
+"매장 이용"
+],
+"style": "외국인이 서툰 한국어로 말한 것, 조사 생략"
+},
+{
+"text": "차가운 우유 커피 하나, 테이크아웃",
+"item": "latte_ice",
+"qty": 1,
+"options": [
+"테이크아웃"
+],
+"style": "외국인이 서툰 한국어로 말한 것, 조사 생략"
+},
+{
+"text": "검은 커피 두 개, 텀블러 사용",
+"item": "americano_ice",
+"qty": 2,
+"options": [
+"텀블러 사용(-300)"
+],
+"style": "외국인이 서툰 한국어로 말한 것, 조사 생략"
+},
+{
+"text": "요거트 하나, 얼음 적게",
+"item": "plain_yogurt",
+"qty": 1,
+"options": [
+"얼음 적게"
+],
+"style": "외국인이 서툰 한국어로 말한 것, 조사 생략"
+},
+{
+"text": "바닐라 하나, 테이크아웃",
+"item": "vanilla_latte",
+"qty": 1,
+"options": [
+"테이크아웃"
+],
+"style": "외국인이 서툰 한국어로 말한 것, 조사 생략"
+},
+{
+"text": "디카페인 커피 하나, 매장 이용",
+"item": "decaf_americano",
+"qty": 1,
+"options": [
+"매장 이용"
+],
+"style": "외국인이 서툰 한국어로 말한 것, 조사 생략"
+},
+{
+"text": "아하 한잔 테잌아웃",
+"item": "americano_ice",
+"qty": 1,
+"options": [
+"테이크아웃"
+],
+"style": "시끄러운 매장에서 음성인식이 받아쓴 것처럼 글자가 틀리거나 빠짐"
+},
+{
+"text": "뜨아 두잔 매장서",
+"item": "americano_hot",
+"qty": 2,
+"options": [
+"매장 이용"
+],
+"style": "시끄러운 매장에서 음성인식이 받아쓴 것처럼 글자가 틀리거나 빠짐"
+},
+{
+"text": "바닐라 라떼 시럽추가 한잔",
+"item": "vanilla_latte",
+"qty": 1,
+"options": [
+"시럽 추가"
+],
+"style": "시끄러운 매장에서 음성인식이 받아쓴 것처럼 글자가 틀리거나 빠짐"
+},
+{
+"text": "초코라떼 두개 싸이즈업",
+"item": "choco",
+"qty": 2,
+"options": [
+"사이즈 업(+500)"
+],
+"style": "시끄러운 매장에서 음성인식이 받아쓴 것처럼 글자가 틀리거나 빠짐"
+},
+{
+"text": "차거운 라떼 한잔 샷추가",
+"item": "latte_ice",
+"qty": 1,
+"options": [
+"샷 추가(+500)"
+],
+"style": "시끄러운 매장에서 음성인식이 받아쓴 것처럼 글자가 틀리거나 빠짐"
+},
+{
+"text": "딸기 스무디 하나 얼음 조큼",
+"item": "strawberry_smoothie",
+"qty": 1,
+"options": [
+"얼음 적게"
+],
+"style": "시끄러운 매장에서 음성인식이 받아쓴 것처럼 글자가 틀리거나 빠짐"
+},
+{
+"text": "디카 아메 두잔 텀블러",
+"item": "decaf_americano",
+"qty": 2,
+"options": [
+"텀블러 사용(-300)"
+],
+"style": "시끄러운 매장에서 음성인식이 받아쓴 것처럼 글자가 틀리거나 빠짐"
+},
+{
+"text": "자몽에이드 세개 테잌아웃",
+"item": "grapefruit_ade",
+"qty": 3,
+"options": [
+"테이크아웃"
+],
+"style": "시끄러운 매장에서 음성인식이 받아쓴 것처럼 글자가 틀리거나 빠짐"
+},
+{
+"text": "따뜻한 유자차 한잔",
+"item": "yuja_tea",
+"qty": 1,
+"options": [],
+"style": "시끄러운 매장에서 음성인식이 받아쓴 것처럼 글자가 틀리거나 빠짐"
+},
+{
+"text": "콜드브루 한개 싸이즈업",
+"item": "cold_brew",
+"qty": 1,
+"options": [
+"사이즈 업(+500)"
+],
+"style": "시끄러운 매장에서 음성인식이 받아쓴 것처럼 글자가 틀리거나 빠짐"
+},
+{
+"text": "아인슈페너 하나 매장서",
+"item": "einspanner",
+"qty": 1,
+"options": [
+"매장 이용"
+],
+"style": "시끄러운 매장에서 음성인식이 받아쓴 것처럼 글자가 틀리거나 빠짐"
+},
+{
+"text": "레몬에이 두개 샷추가",
+"item": "lemonade",
+"qty": 2,
+"options": [
+"샷 추가(+500)"
+],
+"style": "시끄러운 매장에서 음성인식이 받아쓴 것처럼 글자가 틀리거나 빠짐"
+},
+{
+"text": "녹차라떼 세잔 시럽 넣어조",
+"item": "greentea_latte",
+"qty": 3,
+"options": [
+"시럽 추가"
+],
+"style": "시끄러운 매장에서 음성인식이 받아쓴 것처럼 글자가 틀리거나 빠짐"
+},
+{
+"text": "요거트 스무디 한개 텀블러",
+"item": "plain_yogurt",
+"qty": 1,
+"options": [
+"텀블러 사용(-300)"
+],
+"style": "시끄러운 매장에서 음성인식이 받아쓴 것처럼 글자가 틀리거나 빠짐"
+},
+{
+"text": "캐모마일 티 두잔",
+"item": "chamomile",
+"qty": 2,
+"options": [],
+"style": "시끄러운 매장에서 음성인식이 받아쓴 것처럼 글자가 틀리거나 빠짐"
+},
+{
+"text": "아아 세잔 테잌아웃",
+"item": "americano_ice",
+"qty": 3,
+"options": [
+"테이크아웃"
+],
+"style": "시끄러운 매장에서 음성인식이 받아쓴 것처럼 글자가 틀리거나 빠짐"
+},
+{
+"text": "뜨거운 라떼 하나 디카페인변경",
+"item": "latte_hot",
+"qty": 1,
+"options": [
+"디카페인 변경(+500)"
+],
+"style": "시끄러운 매장에서 음성인식이 받아쓴 것처럼 글자가 틀리거나 빠짐"
+},
+{
+"text": "아이스라떼 두잔 얼음 적개",
+"item": "latte_ice",
+"qty": 2,
+"options": [
+"얼음 적게"
+],
+"style": "시끄러운 매장에서 음성인식이 받아쓴 것처럼 글자가 틀리거나 빠짐"
+},
+{
+"text": "바닐라 하나 싸이즈업",
+"item": "vanilla_latte",
+"qty": 1,
+"options": [
+"사이즈 업(+500)"
+],
+"style": "시끄러운 매장에서 음성인식이 받아쓴 것처럼 글자가 틀리거나 빠짐"
+},
+{
+"text": "초코 두잔 매장서",
+"item": "choco",
+"qty": 2,
+"options": [
+"매장 이용"
+],
+"style": "시끄러운 매장에서 음성인식이 받아쓴 것처럼 글자가 틀리거나 빠짐"
+},
+{
+"text": "딸스 한개",
+"item": "strawberry_smoothie",
+"qty": 1,
+"options": [],
+"style": "시끄러운 매장에서 음성인식이 받아쓴 것처럼 글자가 틀리거나 빠짐"
+},
+{
+"text": "따아 세개",
+"item": "americano_hot",
+"qty": 3,
+"options": [],
+"style": "시끄러운 매장에서 음성인식이 받아쓴 것처럼 글자가 틀리거나 빠짐"
+},
+{
+"text": "자몽에이 두개 테잌아웃",
+"item": "grapefruit_ade",
+"qty": 2,
+"options": [
+"테이크아웃"
+],
+"style": "시끄러운 매장에서 음성인식이 받아쓴 것처럼 글자가 틀리거나 빠짐"
+},
+{
+"text": "유자차 하나 시럽더",
+"item": "yuja_tea",
+"qty": 1,
+"options": [
+"시럽 추가"
+],
+"style": "시끄러운 매장에서 음성인식이 받아쓴 것처럼 글자가 틀리거나 빠짐"
+},
+{
+"text": "아아 한잔 텀블러",
+"item": "americano_ice",
+"qty": 1,
+"options": [
+"텀블러 사용(-300)"
+],
+"style": "시끄러운 매장에서 음성인식이 받아쓴 것처럼 글자가 틀리거나 빠짐"
+},
+{
+"text": "콜드브루 두개 샷추가",
+"item": "cold_brew",
+"qty": 2,
+"options": [
+"샷 추가(+500)"
+],
+"style": "시끄러운 매장에서 음성인식이 받아쓴 것처럼 글자가 틀리거나 빠짐"
+},
+{
+"text": "녹차라떼 세잔 매장서",
+"item": "greentea_latte",
+"qty": 3,
+"options": [
+"매장 이용"
+],
+"style": "시끄러운 매장에서 음성인식이 받아쓴 것처럼 글자가 틀리거나 빠짐"
+},
+{
+"text": "요거트 하나 싸이즈업",
+"item": "plain_yogurt",
+"qty": 1,
+"options": [
+"사이즈 업(+500)"
+],
+"style": "시끄러운 매장에서 음성인식이 받아쓴 것처럼 글자가 틀리거나 빠짐"
+},
+{
+"text": "아인슈페너 세잔 테잌아웃",
+"item": "einspanner",
+"qty": 3,
+"options": [
+"테이크아웃"
+],
+"style": "시끄러운 매장에서 음성인식이 받아쓴 것처럼 글자가 틀리거나 빠짐"
+},
+{
+"text": "디카 아메 한잔 얼음 적개",
+"item": "decaf_americano",
+"qty": 1,
+"options": [
+"얼음 적게"
+],
+"style": "시끄러운 매장에서 음성인식이 받아쓴 것처럼 글자가 틀리거나 빠짐"
+}
+],
+"generator": "gemma-4-26b-a4b-it (매칭 사전 생성 모델과 다른 모델)"
+}
